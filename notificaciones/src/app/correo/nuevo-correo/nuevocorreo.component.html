@@ -1,0 +1,167 @@
+<div id="content" class="content-site  container clearfix" id="arriba">
+
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h1 (click)="BorrarDatosCorreo();">Envío de Correos</h1>
+            <p> Mensaje Nuevo:</p>
+
+            <div class="col-md-12">
+                <!-- Form test -->
+                <!--<form class="form-horizontal" role="form">-->
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-6"> </div>
+                    <div class="col-sm-6">
+
+                        <div class="float-left-padding">
+                            <a class="btn btn-default" routerLink="/seleccionsistemaemisor"><span class="glyphicon glyphicon-chevron-left"></span> Volver a selección de sistema</a>
+                        </div>
+                        <div class="float-left-padding">
+
+                            <a class="btn btn-default" data-toggle="modal" title="Fuente de Datos" href="#fuentedatos" (click)="fileFuenteDatos.click()">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                 Fuente de Datos
+                            </a>
+                            <input type="file" #fileFuenteDatos (change)="adjuntarFuenteDatos($event)" id="fileFuenteDatos" style="display: none;" />
+                        </div>
+                        <div class="float-left-padding">
+                            <a class="btn btn-default" data-toggle="modal" title="Enviar" href="#enviar" (click)="CoordinarEnviarCorreo()"><span class="glyphicon glyphicon-send"></span> Enviar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="correo.FuenteDatos">
+                    <div class="col-sm-12 text-green" align="right">
+                        {{mensajeFuenteDatosCargada}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div for="inputName" class="col-sm-2 text-right"><input type="checkbox" checked id="UsarDireccionesFuenteDatos" (change)="CambiarTextoObligatorio()" [(ngModel)]="correo.UsarDireccionesFuenteDatos"/></div>
+                    <div class="col-sm-10">
+                        Usar direcciones de correo de fuente de datos
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"><b>De:</b></div>
+                    <div class="col-sm-10">
+                        {{casillaCorreoSalida}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"><b id="labelPara">{{tituloPara}}</b></div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  [(ngModel)]="correo.Para" placeholder="" name="para" id="para" [disabled]="correo.UsarDireccionesFuenteDatos">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"><b>Cc</b></div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="cc" [(ngModel)]="correo.CC" placeholder="" id="cc" name="cc" [disabled]="correo.UsarDireccionesFuenteDatos">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"><b>Cco</b></div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="cco" [(ngModel)]="correo.CCo" placeholder="" id="cco" name="cco" [disabled]="correo.UsarDireccionesFuenteDatos">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"><b>Asunto (*)</b></div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="asunto" [(ngModel)]="correo.Asunto" placeholder="" id="asunto">
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"></div>
+                    <div class="col-sm-10">
+
+                       <!-- use with ngModel -->
+                      <textarea id="cuerpo" name="cuerpo" id="cuerpoCorreo">
+                      </textarea>
+
+                    </div>
+                </div>
+                <input type="hidden" id="IdEnvio" [(ngModel)]="correo.IdEnvio"/>
+                <input type="hidden" id="IdPlantilla" [(ngModel)]="correo.IdPlantilla"/>
+                <input type="hidden" id="NombreUsuario" [(ngModel)]="correo.NombreUsuario" value="aauribem"/>
+                <input type="hidden" id="IdSistemaEmisor" [(ngModel)]="IdSistemaEmisor" value="1"/>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"></div>
+                    <div class="col-sm-10">
+
+                            <a class="btn btn-default clickable" data-toggle="modal" title="Fuente de Datos" (click)="adjunto.click()">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                 Adjuntar archivos
+                            </a>
+                        <!--adjuntarArchivo($event,para.value, cc.value, cco.value, asunto.value, cuerpo.value)-->
+                        <input class="form-control" id="adjunto" #adjunto name="adjunto" multiple ng-model="adjunto" (change)="adjuntarArchivo($event)" type="file" style="display: none;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-right"></div>
+                    <div class="col-sm-10">
+                        <b>Adjuntos ({{adjuntos.archivos.length}})&nbsp;<img id="imgCargandoAdjuntos" src="assets/img/loading.gif" style="display:none;" /></b>
+                        <div class="col-md-12" *ngIf="adjuntos && adjuntos.archivos && adjuntos.archivos.length > 0">
+                            <table class="col-md-12">
+                                <!--
+                                    El thead queda desalineado y es demasiado el esfuerzo para dejarlo alineado y muy poco portable 
+                                    (anchos fijos en columnas)
+                                    -->
+                                <!--
+                                <thead>
+                                    <th>Nombre Archivo</th>
+                                    <th>Peso</th>
+                                    <th>Acción</th>
+                                </thead>
+                                -->
+                                <tbody class="overflow-vertical contenedor-vertical-100">
+                                    <tr *ngFor="let archivo of adjuntos.archivos; let i = index;">
+                                        <td class="col-md-10">{{archivo.nombreArchivo}}</td>
+                                        <td class="col-md-1">({{archivo.ObtenerPesoLegible()}})</td>
+                                        <td class="col-md-1>"><a class="clickable" title="Borrar adjunto" (click)="EliminarAdjunto(i)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12" *ngIf="!adjuntos || !adjuntos.archivos || adjuntos.archivos.length == 0">
+                            No hay adjuntos agregados
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6"> </div>
+                    <div class="col-sm-6" align="right">
+                        <div class="col-sm-5" >
+                            <div class="col-sm-12" *ngIf="correo.UsarDireccionesFuenteDatos">
+                                <a class="btn btn-default" data-toggle="modal" data-target="#previsualizar"
+                                href="#previsualizar" (click)="modalPrevisualizar.Inicializar(correo, casillaCorreoSalida);$('#previsualizar').modal('show')">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Previsualizar
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <a class="btn btn-default" data-toggle="modal" href="#enviar" (click)="CoordinarGuardarCorreo()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-default" data-toggle="modal" title="Enviar" href="#enviar" (click)="CoordinarEnviarCorreo($event)"><span class="glyphicon glyphicon-send"></span> Enviar</a>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+                <previsualizacionCorreo #modalPrevisualizar>
+                </previsualizacionCorreo>
+                 <!--
+                <previsualizacionCorreo  [correoEntrada]="correo" #modalPrevisualizar>
+                </previsualizacionCorreo>
+                -->
+                <!--</form>-->
+            </div>
+            <a class="btn btn-default clickable goToTop"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+            <br />
+        </div>
+    </div>
+    <!-- fin de .main -->
+</div>

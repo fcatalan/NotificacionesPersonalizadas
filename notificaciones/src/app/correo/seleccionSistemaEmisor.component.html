@@ -1,0 +1,59 @@
+<div id="content" class="content-site  container clearfix">
+    <div class="row">
+
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <div class="row">
+                <h3>{{titulo}}</h3>
+                <br>
+                <br>
+                <div class="col-md-4-5">
+                    <p> Seleccione el sistema desde el que se enviará el correo (*): &nbsp;<img id="imgCargandoSistemas" src="assets/img/loading.gif" style="display:none;" /></p>
+                </div>
+                <div class="col-md-5">
+                    <select name="CmbSistemaEmisorlst" class="form-control" [(ngModel)]="idSistemaEmisor" (change)="rellenarSistemaEmisor()">
+                        <option value="-1">Seleccione Sistema</option>
+                        <option *ngFor="let item of sistemasEmisores" [value]="item.IdEmisor">{{item.NombreSistema}}</option>
+                        <!--(change)="onChange()"-->
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <br><br><br>
+                <div class="col-md-2-5">
+                    <a class="btn btn-default col-md-12 {{idSistemaEmisor == '-1' ? 'disabled' : ''}}" [routerLink]="['/correonuevo']" id="btnNuevoCorreo" 
+                    [queryParams]="{idSistemaEmisor: idSistemaEmisor, casillaCorreoSistEmisor: casillaCorreoSistema}">
+                        <span style="color: green" class="glyphicon glyphicon-plus-sign"></span> Crear Nuevo Correo
+                    </a>
+                </div>
+                <div class="col-md-0-5"></div>
+                <div class="col-md-2-5">
+                    <a class="btn btn-default col-md-12 {{idSistemaEmisor == '-1' ? 'disabled' : ''}}" id="btnCorreoConPlantilla" [routerLink]="['/correoPlantillaBorrador']" 
+                    [queryParams]="{tipoPlantilla: 2, idSistemaEmisor: idSistemaEmisor, casillaCorreoSistEmisor: casillaCorreoSistema}">
+                    <span style="color: green" class="glyphicon glyphicon-envelope"></span>
+                    Crear Usando Plantilla
+                    </a>
+                </div>
+                <div class="col-md-0-5"></div>
+                <div class="col-md-2-5">
+                    <a class="btn btn-default col-md-12 {{idSistemaEmisor == '-1' ? 'disabled' : ''}}" id="btnCorreoConBorrador" [routerLink]="['/correoPlantillaBorrador']" 
+                    [queryParams]="{tipoPlantilla: 1, idSistemaEmisor: idSistemaEmisor, casillaCorreoSistEmisor: casillaCorreoSistema}">
+                    <span style="color: green" class="glyphicon glyphicon-envelope"></span>
+                    Crear Usando Borrador
+                    </a>
+                </div>
+                <div class="col-md-0-5"></div>
+                <div class="col-md-2-5">
+                    <a class="btn btn-default col-md-12" [routerLink]="['/bandejasalida']" [queryParams]="{idSistemaEmisor: idSistemaEmisor}">
+                    <span style="color: green" class="glyphicon glyphicon glyphicon-envelope"></span> 
+                        Bandeja de salida
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <a class="btn btn-default clickable goToTop"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+            </div>
+        </div>
+    </div>
+    <!-- fin de .main -->
+</div>

@@ -1,0 +1,133 @@
+<div id="content" class="content-site  container clearfix" ng-controller="ExampleController">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h2>{{title}}</h2>
+            <br />
+            <h4>Sistema Emisor: <span *ngIf="this.respuestaSistEmisor && this.respuestaSistEmisor.sistemaEmisor">{{this.respuestaSistEmisor.sistemaEmisor.NombreSistema}}</span></h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row text-center">
+                        <div class="col-md-2">
+                            <div class="col-md-5">
+                                <p> Mostrar:</p>
+                            </div>
+                            <div class="col-md-7">
+
+                                <select class="form-control col-md-12" id="cantPorPag" [(ngModel)]="consultaPlantillaBorrador.tamanoPagina">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="0">Todos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Asunto:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" 
+                                                                    id="asunto" placeholder="Ingrese parte del asunto"
+                                                                    [(ngModel)]="consultaPlantillaBorrador.asunto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Fecha:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <my-date-picker [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateChanged($event)" >
+                                    </my-date-picker>
+                                    <span ng-bind="consultaPlantillaBorrador.fecha" style="display: block; margin-top: 5px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                                                    <p> Nombre Usuario</p>
+                                </div>
+                                <div class="col-md-8">
+                                                                <input  ng2-auto-complete
+                                                                                id="consultaPlantillaBorrador.nombreUsuario"
+                                                                                placeholder="Enter para elegir"
+                                                                                [source]="usuarioService.obtenerListaSugerenciasUsuarios" 
+                                                                                no-match-found-text="No se encontraron usuarios"
+                                                                                display-property-name="name"
+                                                                                value-property-name="description"
+                                                                                path-to-data="usuarios"
+                                                                                loading-text="Cargando..."
+                                                                                min-chars="3"
+                                                                                class="form-control"
+                                                                                (valueChanged)="onNameChanged($event)"
+                                                                                />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-primary clickable" (click)="recargarGrilla(true)"><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="assets/img/loading.gif" style="display:none" id="imgCargandoPlantillaBorrador"/>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="table-responsive horizontal-scroll" id="divGrilla">
+                            <table class="table  table-bordered  dataTable no-footers">
+                                <thead>
+                                    <tr>
+                                        <th>Asunto</th>
+                                        <th>Fecha</th>
+                                        <th>Usuario</th>
+                                        <th>Link Redacci&oacute;n</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let detalle of infoGrilla.plantillas">
+                                        <td>{{detalle.Asunto}}</td>
+                                        <td>{{detalle.FechaCreacion}}</td>
+                                        <td>{{detalle.Idusuario}}</td>
+                                        <td><a class="btn btn-xs clickable" data-toggle="previsualizar" [routerLink]="['/correonuevo']" [queryParams]="{tipoPlantilla: consultaPlantillaBorrador.tipoPlantilla, idPlantilla: detalle.IdPlantilla, casillaCorreoSistEmisor: casillaCorreoSistEmisor, idSistemaEmisor: idSistemaEmisor}">
+                                                    <span class="glyphicon glyphicon-list-alt"></span
+                                                ></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right">
+                            <ul class="pagination">
+                                <li><a class="clickable" (click)="moverPaginaInicial()" title="Ir a la primera página">⏮</a></li>
+                                <li><a class="clickable" (click)="moverPagina(-10)" title="Ir 10 páginas atrás">⏪</a></li>
+                                <li><a class="clickable" (click)="moverPagina(-1)" title="Retroceder una página">◀️</a></li>
+                                <li><a disabled>{{consultaPlantillaBorrador.nroPagina+1}}/{{getTotalPaginas()}}</a></li>
+                                <li><a class="clickable" (click)="moverPagina(1)" title="Avanzar una página">▶️</a></li>
+                                <li><a class="clickable" (click)="moverPagina(10)" title="Ir 10 páginas adelante">⏩</a></li>
+                                <li><a class="clickable" (click)="moverPaginaFinal()" title="Ir a la última página">⏭</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-default clickable goToTop"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+            </div>
+        </div>
+    </div>
+</div>

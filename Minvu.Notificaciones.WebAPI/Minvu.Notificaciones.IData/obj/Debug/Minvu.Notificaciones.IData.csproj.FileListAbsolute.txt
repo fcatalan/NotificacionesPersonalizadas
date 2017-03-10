@@ -1,0 +1,16 @@
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\obj\Debug\Minvu.Notificaciones.IData.csprojResolveAssemblyReference.cache
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\Minvu.Notificaciones.IData.dll.config
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\Minvu.Notificaciones.IData.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\Minvu.Notificaciones.IData.pdb
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\EntityFramework.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\EntityFramework.SqlServer.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\log4net.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\Minvu.Notificaciones.Personalizadas.Entidades.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\Minvu.Notificaciones.Personalizadas.Entidades.pdb
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\EntityFramework.xml
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\EntityFramework.SqlServer.xml
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\log4net.xml
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\es\EntityFramework.resources.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\obj\Debug\Minvu.Notificaciones.IData.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.IData\obj\Debug\Minvu.Notificaciones.IData.pdb

@@ -1,0 +1,104 @@
+{
+  "configSystem": {
+    "ambActivo":"local"
+  },
+  "configArchivoAdjunto": {
+  	"TAMANHO_MAXIMO_ADJUNTOS": "3932160",
+    "TAMANHO_MAXIMO_CORREO":"4194304"
+  },
+ "configAutocompletar":{
+    "CANT_MAX_SUGEERENCIAS_AUTOCOMPLETAR":"10"
+  },
+  "configDatePicker":{
+    "FORMATO_FECHA_VISIBLE":"dd/mm/yyyy",
+    "NOMBRES_DIAS_FECHAS": {"su": "Dom", "mo": "Lun", "tu": "Mar", "we": "Mie", "th": "Jue", "fr": "Vie", "sa": "Sab"},
+    "NOMBRES_MESES_FECHAS":{ "1": "Ene", "2": "Feb", "3": "Mar", "4": "Abr", "5": "May", "6": "Jun", "7": "Jul", "8": "Ago", "9": "Sep", "10": "Oct", "11": "Nov", "12": "Dic" },
+    "NOMBRE_HOY_FECHAS":"Hoy"
+  },
+  "configCorreo":{
+  	"POSICION_TEXTO_INICIO_CORREO": "22909"
+  },
+  "urlWebApi": {
+    "local": "http://localhost:2292/api/",
+    "desarrollo": "http://desarrollo.notificacionespersonalizadas.minvu.cl/api/",
+    "test": "http://test.notificacionespersonalizadas.minvu.cl/api/",
+    "produccion": "http://produccion.notificacionespersonalizadas.minvu.cl/api/"
+  },
+  "urlPSSIM":{
+    "local" : "http://desarrollo.authpssim.minvu.cl",
+    "desarrollo" : "http://desarrollo.authpssim.minvu.cl",
+    "test"  : "http://test.authpssim.minvu.cl",
+    "produccion" : "http://produccion.authpssim.minvu.cl"
+  },
+  "nombreTareaCorreo": {
+    "local" : "EnviarCorreo",
+    "desarrollo" : "EnviarCorreo",
+    "test"  : "EnviarCorreo",
+    "produccion" : "EnviarCorreo"
+  },
+  "nombreTareaNotificaciones": {
+    "local" : "EnviarNotificacion",
+    "desarrollo" : "EnviarNotificacion",
+    "test"  : "EnviarNotificacion",
+    "produccion" : "EnviarNotificacion"
+  },
+  "nombreTareaMantenedorPalabrasProhibidas": {
+    "local" : "MantenedorPalabrasProhibidas",
+    "desarrollo" : "MantenedorPalabrasProhibidas",
+    "test"  : "MantenedorPalabrasProhibidas",
+    "produccion" : "MantenedorPalabrasProhibidas"
+  },
+  "errorConfig" :
+  {
+    "PAGINA_ERROR_SIN_WEBAPI": "/errorconexion",
+    "MENSAJE_ERROR_WEBAPI_NO_RESPONDE" : "El sistema WebAPI con el cual se comunica el sistema de notificaciones para manejar datos est\u00e1 offline o caduc\u00f3 la sesi\u00f3n de PSSIM para el sistema de notificaciones.",
+    "PAGINA_ERROR_SIN_PERMISO": "/menu",
+    "nombreHeaderSinSesion": "SinSesion",
+    "nombreHeaderUrl": "Url"
+  },
+  "cerrarSesionConfig": {
+    "mensaje": "Se ha cerrado la sesión exit\u00f3samente"
+  },
+  "tituloPara": {
+    "usarFuenteDatos": "Para",
+    "noUsarFuenteDatos": "Para (*)"
+  },
+  "mensajeFaltaFuenteDatos": {
+    "previsualizacion": "Debe ingresar la fuente de datos para previsualizar",
+    "envio": "Debe ingresar la fuente de datos para enviar"
+  },
+  "mensajeFaltaAsunto": {
+    "previsualizacion": "Debe ingresar el asunto para previsualizar",
+    "envio": "Debe ingresar el asunto para enviar"
+  },
+  "mensajeFaltaCuerpo": {
+    "previsualizacion": "Debe ingresar el cuerpo del correo para previsualizar",
+    "envio": "Debe ingresar el cuerpo del correo para enviar"
+  },
+  "mensajeJsonMuyPesado": {
+    "previsualizacion": "No se puede enviar una solicitud que pese más de ${pesoMaximoJson}<br><br>Verifique el tamaño de los adjuntos, fuente de datos, cuerpo, asunto, cantidad de destinatarios y copias pues la solicitud con todos los datos mencionados pesa ${pesoJson}<br><br>El tamaño de los archivos e imagenes embedidas se incrementa en un 33% mientras viajan por la red por este sistema, pero al momento de llegar al destinatario quedan con su tamaño normal",
+    "envio": "No se puede enviar una solicitud que pese más de ${pesoMaximoJson}<br><br>Verifique el tamaño de los adjuntos, fuente de datos, cuerpo, asunto, cantidad de destinatarios y copias pues la solicitud con todos los datos mencionados pesa ${pesoJson}<br><br>El tamaño de los archivos e imagnes embedidas se incrementa en un 33% mientras viajan por la red por este sistema, pero al momento de llegar al destinatario quedan con su tamaño normal"
+  },
+  "mensajeFuenteDatosCargada": {
+    "mensaje": "Fuente de datos cargada"
+  },
+  "mensajesArchivos": {
+    "unAdjuntoSobrepasaLimitePeso" : "<li>El archivo ${nombreArchivo} no puede sobrepasar los ${pesoMaximoAdjunto}. Peso archivo: ${pesoArchivo}</li>",
+    "resumenArchivosSobrepasadosDePeso": "<span class=\"glyphicon glyphicon-alert\"></span>&nbsp;Advertencia<ul>${listaAdvertencias}</ul>",
+    "variosAdjuntosSobrepasanLimitePeso": "<span class=\"glyphicon glyphicon-alert\"></span>&nbsp;Los archivos adjuntos no pueden sobrepasar los ${pesoMaximoAdjunto}. Peso conjunto archivos: ${pesoConjuntoArchivos}<br><ul>${listaArchivosConPeso}</ul>",
+    "detalleArchivo": "<li>Nombre archivo: \"${nombreArchivo}\", peso: ${pesoArchivo}</li>",
+    "separadorResumenes": "<br>"
+  },
+  "menuConfig": {
+    "fragmentos": {
+      "linkNotificaciones" : ["envionotificaciones", "nuevanotificacion"],
+      "linkCorreo": ["seleccionsistemaemisor", "correonuevo", "correoPlantillaBorrador", "bandejasalida"],
+      "linkMantenedorPalabras": ["mantenedor"]
+    }
+  },
+  "mensajeErrorSistEmisor": {
+    "nulo" : "No existe registro del sistema emisor en el sistema de notificaciones",
+    "error": "No fue posible conectarse al sistema WebAPI para obtener el sistema emisor"
+  }
+}
+

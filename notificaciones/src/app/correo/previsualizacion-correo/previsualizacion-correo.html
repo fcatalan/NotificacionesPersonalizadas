@@ -1,0 +1,89 @@
+<div id="previsualizar" class="modal fade in" role="dialog" style="padding-right: 17px;">
+		<div class="modal-dialog width-065">
+			<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<div class="col-md-12" *ngIf="previsualizacion.FuenteDatos && previsualizacion.Asunto && previsualizacion.Cuerpo">
+							<h4 class="modal-title">{{titulo}}</h4>
+						</div>
+						<div class="col-md-12" *ngIf="!previsualizacion.FuenteDatos || !previsualizacion.Asunto || !previsualizacion.Cuerpo">
+							<h4 class="modal-title">Error</h4>
+						</div>
+				</div>
+				<div class="modal-body">
+					<div class="row" *ngIf="previsualizacion.FuenteDatos != undefined 
+																&& previsualizacion.FuenteDatos.length > 0
+																&& previsualizacion.Asunto != undefined 
+																&& previsualizacion.Asunto.length > 0
+																&& previsualizacion.Cuerpo != undefined
+																&& previsualizacion.Cuerpo.length > 0
+																&& pesoJson <= pesoMaximoJson">
+						<div class="col-md-12">
+							<strong>Desde: </strong><span id="prevDe" *ngIf="previsualizacion">{{previsualizacion.De}}</span>
+							<br><strong>Para: </strong> <span id="prevPara" *ngIf="previsualizacion">{{previsualizacion.Para}}</span>
+							<br><strong>Asunto: </strong> <span id="prevAsunto" *ngIf="previsualizacion">{{previsualizacion.Asunto}}</span>
+							<br><strong>Cuerpo: </strong>
+							<div id="prevCuerpo" class="col-md-12 ql-editor row-md-max-7 overflow-vertical" [innerHTML]="cuerpoSaneado">
+							</div>
+							<br>
+						</div>
+					</div>
+					<div *ngIf="previsualizacion.FuenteDatos == undefined
+					|| previsualizacion.FuenteDatos.length == 0
+					|| previsualizacion.Asunto == undefined
+					|| previsualizacion.Asunto.length == 0 
+					|| previsualizacion.Cuerpo == undefined
+					|| previsualizacion.Cuerpo.length == 0
+					|| pesoJson > pesoMaximoJson">
+						<div class="row" *ngIf="previsualizacion.FuenteDatos == undefined || previsualizacion.FuenteDatos.length == 0">
+							<div class="col-md-12">
+								<span class="glyphicon glyphicon-alert"></span>&nbsp;{{mensajeFaltaFuenteDatos}}
+							</div>
+						</div>
+						<div class="row" *ngIf="previsualizacion.Asunto == undefined || previsualizacion.Asunto.length == 0">
+							<div class="col-md-12">
+								<span class="glyphicon glyphicon-alert"></span>&nbsp;{{mensajeFaltaAsunto}}
+							</div>
+						</div>
+						<div class="row" *ngIf="previsualizacion.Cuerpo == undefined || previsualizacion.Cuerpo.length == 0">
+							<div class="col-md-12">
+								<span class="glyphicon glyphicon-alert"></span>&nbsp;{{mensajeFaltaCuerpo}}
+							</div>
+						</div>
+						<div class="row" *ngIf="pesoJson > pesoMaximoJson">
+							<div class="col-md-12">
+								<span class="glyphicon glyphicon-alert"></span>&nbsp;<span [innerHTML]="mensajeJsonMuyPesado"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="col-md-12" *ngIf="previsualizacion.FuenteDatos != undefined 
+																								&& previsualizacion.FuenteDatos.length > 0
+																								&& previsualizacion.Asunto != undefined 
+																								&& previsualizacion.Asunto.length > 0
+																								&& previsualizacion.Cuerpo != undefined
+																								&& previsualizacion.Cuerpo.length > 0
+																								&& pesoJson <= pesoMaximoJson">
+						
+						<div class="text-center">
+								<ul class="pagination">
+										<li><a class="clickable" (click)="MoverCorreoActual(-respuestaPrev.CantCorreos+1)" title="Ir al primer correo">⏮</a></li>
+										<li><a class="clickable" (click)="MoverCorreoActual(-10)" title="Ir 10 correos atrás">⏪</a></li>
+										<li><a class="clickable" (click)="MoverCorreoActual(-1)" title="Ir al correo anterior">◀️</a></li>
+										<li><a disabled>{{previsualizacion.NroCorreo+1}}/{{respuestaPrev.CantCorreos}}</a></li>
+										<li><a class="clickable" (click)="MoverCorreoActual(1)" title="Ir al correo siguiente">▶️</a></li>
+										<li><a class="clickable" (click)="MoverCorreoActual(10)" title="Ir 10 correos adelante">⏩</a></li>
+										<li><a class="clickable" (click)="MoverCorreoActual(respuestaPrev.CantCorreos-1)" title="Ir al último anterior">⏭</a></li>
+								</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="$('#previsualizar').modal('hide')">Aceptar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

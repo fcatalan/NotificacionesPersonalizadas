@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_Notificaciones_PersonalizadasModelStoreContainer" CdmEntityContainer="NotificacionesEntities">
+    <EntitySetMapping Name="ADJUNTO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ADJUNTO">
+        <MappingFragment StoreEntitySet="ADJUNTO">
+          <ScalarProperty Name="TAMANIO" ColumnName="TAMANIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RUTA" ColumnName="RUTA" />
+          <ScalarProperty Name="IDENVIO" ColumnName="IDENVIO" />
+          <ScalarProperty Name="IDADJUNTO" ColumnName="IDADJUNTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CORREO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.CORREO">
+        <MappingFragment StoreEntitySet="CORREO">
+          <ScalarProperty Name="FECHAHORA" ColumnName="FECHAHORA" />
+          <ScalarProperty Name="CUERPO" ColumnName="CUERPO" />
+          <ScalarProperty Name="ASUNTO" ColumnName="ASUNTO" />
+          <ScalarProperty Name="IDENVIO" ColumnName="IDENVIO" />
+          <ScalarProperty Name="IDDESTINATARIO" ColumnName="IDDESTINATARIO" />
+          <ScalarProperty Name="IDESTADOCORREO" ColumnName="IDESTADOCORREO" />
+          <ScalarProperty Name="IDCORREO" ColumnName="IDCORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATARIO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.DESTINATARIO">
+        <MappingFragment StoreEntitySet="DESTINATARIO">
+          <ScalarProperty Name="CASILLACORREO" ColumnName="CASILLACORREO" />
+          <ScalarProperty Name="IDDESTINATARIO" ColumnName="IDDESTINATARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENVIO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ENVIO">
+        <MappingFragment StoreEntitySet="ENVIO">
+          <ScalarProperty Name="CONCOPIAOCULTA" ColumnName="CONCOPIAOCULTA" />
+          <ScalarProperty Name="CONCOPIA" ColumnName="CONCOPIA" />
+          <ScalarProperty Name="FECHAHORA" ColumnName="FECHAHORA" />
+          <ScalarProperty Name="IDESTADOENVIO" ColumnName="IDESTADOENVIO" />
+          <ScalarProperty Name="IDSISTEMAEMISOR" ColumnName="IDSISTEMAEMISOR" />
+          <ScalarProperty Name="IDPLANTILLACORREO" ColumnName="IDPLANTILLACORREO" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDENVIO" ColumnName="IDENVIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_CORREO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ESTADO_CORREO">
+        <MappingFragment StoreEntitySet="ESTADO_CORREO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDESTADOCORREO" ColumnName="IDESTADOCORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_ENVIO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ESTADO_ENVIO">
+        <MappingFragment StoreEntitySet="ESTADO_ENVIO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDESTADOENVIO" ColumnName="IDESTADOENVIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_NOTIFICACION">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ESTADO_NOTIFICACION">
+        <MappingFragment StoreEntitySet="ESTADO_NOTIFICACION">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDESTADONOTIFICACION" ColumnName="IDESTADONOTIFICACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_PLANTILLA_CORREO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.ESTADO_PLANTILLA_CORREO">
+        <MappingFragment StoreEntitySet="ESTADO_PLANTILLA_CORREO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDESTADOPLANTILLACORREO" ColumnName="IDESTADOPLANTILLACORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.EVENTO">
+        <MappingFragment StoreEntitySet="EVENTO">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDEVENTO" ColumnName="IDEVENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOTIFICACION">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.NOTIFICACION">
+        <MappingFragment StoreEntitySet="NOTIFICACION">
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+          <ScalarProperty Name="ESTADOVIGENCIA" ColumnName="ESTADOVIGENCIA" />
+          <ScalarProperty Name="FECHAHORAFIN" ColumnName="FECHAHORAFIN" />
+          <ScalarProperty Name="FECHAHORAINICIO" ColumnName="FECHAHORAINICIO" />
+          <ScalarProperty Name="MENSAJE" ColumnName="MENSAJE" />
+          <ScalarProperty Name="ASUNTO" ColumnName="ASUNTO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="IDESTADONOTIFICACION" ColumnName="IDESTADONOTIFICACION" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDNOTIFICACION" ColumnName="IDNOTIFICACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PALABRAS_PROHIBIDAS">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.PALABRAS_PROHIBIDAS">
+        <MappingFragment StoreEntitySet="PALABRAS_PROHIBIDAS">
+          <ScalarProperty Name="ESTADOVIGENCIA" ColumnName="ESTADOVIGENCIA" />
+          <ScalarProperty Name="FECHAMODIFICACION" ColumnName="FECHAMODIFICACION" />
+          <ScalarProperty Name="IDUSUARIOMODIFICACION" ColumnName="IDUSUARIOMODIFICACION" />
+          <ScalarProperty Name="FECHAINGRESO" ColumnName="FECHAINGRESO" />
+          <ScalarProperty Name="PALABRA" ColumnName="PALABRA" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDPALABRAPROHIBIDA" ColumnName="IDPALABRAPROHIBIDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANTILLA_CORREO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO">
+        <MappingFragment StoreEntitySet="PLANTILLA_CORREO">
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+          <ScalarProperty Name="CUERPO" ColumnName="CUERPO" />
+          <ScalarProperty Name="ASUNTO" ColumnName="ASUNTO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDESTADOPLANTILLACORREO" ColumnName="IDESTADOPLANTILLACORREO" />
+          <ScalarProperty Name="IDPLANTILLACORREO" ColumnName="IDPLANTILLACORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SISTEMA_EMISOR">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.SISTEMA_EMISOR">
+        <MappingFragment StoreEntitySet="SISTEMA_EMISOR">
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="NOMBRESISTEMA" ColumnName="NOMBRESISTEMA" />
+          <ScalarProperty Name="CASILLACORREO" ColumnName="CASILLACORREO" />
+          <ScalarProperty Name="IDSISTEMAEMISOR" ColumnName="IDSISTEMAEMISOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="DB_Notificaciones_PersonalizadasModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="FECHAULTIMOINGRESO" ColumnName="FECHAULTIMOINGRESO" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NOTIFICACION_SISTEMA_EMISOR" TypeName="DB_Notificaciones_PersonalizadasModel.NOTIFICACION_SISTEMA_EMISOR" StoreEntitySet="NOTIFICACION_SISTEMA_EMISOR">
+      <EndProperty Name="SISTEMA_EMISOR">
+        <ScalarProperty Name="IDSISTEMAEMISOR" ColumnName="IDSISTEMAEMISOR" />
+      </EndProperty>
+      <EndProperty Name="NOTIFICACION">
+        <ScalarProperty Name="IDNOTIFICACION" ColumnName="IDNOTIFICACION" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

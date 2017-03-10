@@ -1,0 +1,95 @@
+
+<nav class="navbar nav-minvu navbar-default header-site" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+            <h1 class="clearfix title">
+                <a href="#" class="navbar-brand" sl-processed="1"> Sistema de Notificaciones</a>
+            </h1>
+            <h2 class="minvu-tag">Ministerio de Vivienda y Urbanismo &nbsp; <img src="assets/img/loading.gif" class="imgCargandoMenus" style="display:none"/></h2>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="right-ondesktop collapse navbar-collapse" id="navbar-collapse-1" *ngIf="webApiOK">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/menu">Inicio<img title="Inicio" width="40" height="20" src="assets/img/email.png">
+							</a></li>
+                <li id="linkCorreo" *ngIf="mostrarLinkEnviarCorreo"><a routerLink="/seleccionsistemaemisor">Correos<img title="Envio de correo" width="40" height="20" src="assets/img/email.png">
+							</a></li>
+                <li id="linkNotificaciones" *ngIf="mostrarLinkEnviarNotificacion"><a routerLink="/menuNotificacion">Notificaciones<img title="Envio de Notificaciones" width="40" height="20" src="assets/img/notificacion.png">
+							</a></li>
+                <li id="linkMantenedorPalabras" *ngIf="mostrarLinkAdministrarPalabrasProhibidas"><a routerLink="/mantenedor">Mantenedor<img title="Mantenedor" width="40" height="20" src="assets/img/mantenedor.png">
+							</a></li>
+                <li role="presentation" class="dropdown">
+                    <!--
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                        role="button" aria-haspopup="true" aria-expanded="false"> <strong>{{nombreCompleto}}</strong> 
+                        <span class="caret"></span> 
+                    </a>
+                    -->
+                    <a href="#" onclick="return false;" class="dropdown-toggle" data-toggle="dropdown"   
+                        role="button" aria-haspopup="true" aria-expanded="false"> <strong>{{nombreCompleto}}</strong> 
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="cerrarSesion()" class="clickable">Salir</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+<br />
+<br />
+
+
+
+<footer class="footer-site" role="contentinfo">
+    <div class="container clearfix">
+        <span class="separator-line"></span>
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" btn btn-default">
+                    <a href="#" title="Créditos del sistema"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Créditos</a>
+                </div>
+                <div class="btn btn-default">
+                    <a href="#" title="Contacto SIAC"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contacto SIAC</a>
+                </div>
+            </div>
+            <div class="col-md-4 address-footer info-footer ">
+                <ul>
+                    <li class="address-f">
+                        <h2 class="minvu-name">
+                            Ministerio de Vivienda y Urbanismo
+                        </h2>
+                        <p>
+                            Alameda 924, Santiago, Chile
+                            <br> Código postal: 6513482
+                            <br> Teléfono (56-2) 351 3000
+                            <br> Fax (56-2) 633 7830
+                        </p>
+                        <strong> V2.0.0.0-2016</strong>
+                    </li>
+                    <li>
+                        <a href="http://www.minvu.cl" target="_blank" title="ir al MINVU"><img src="http://cdn.minvu.cl/NGM5.0/images/minvu-logo-footer.jpg" alt="Logo minvu" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end #inner-footer -->
+</footer>
+
+		
+

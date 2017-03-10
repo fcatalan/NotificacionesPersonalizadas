@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minvu.Notificaciones.WebAPI", "WebApi\Minvu.Notificaciones.WebAPI.csproj", "{96D6961D-DC56-4A51-9C55-5DB96B0B9D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minvu.Notificaciones.IData", "Minvu.Notificaciones.IData\Minvu.Notificaciones.IData.csproj", "{F7C43BD5-D8C4-42E8-BB19-B4984B944173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minvu.Notificaciones.Domain", "Minvu.Notificaciones.Domain\Minvu.Notificaciones.Domain.csproj", "{BA908726-A950-40FB-B3B9-36C854C29B4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minvu.Notificaciones.DTO", "Minvu.Notificaciones.Personalizadas.Entidades\Minvu.Notificaciones.DTO.csproj", "{C174C8C3-16CF-4D94-BA68-970B916AEAC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D6961D-DC56-4A51-9C55-5DB96B0B9D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D6961D-DC56-4A51-9C55-5DB96B0B9D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D6961D-DC56-4A51-9C55-5DB96B0B9D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D6961D-DC56-4A51-9C55-5DB96B0B9D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C43BD5-D8C4-42E8-BB19-B4984B944173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C43BD5-D8C4-42E8-BB19-B4984B944173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C43BD5-D8C4-42E8-BB19-B4984B944173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C43BD5-D8C4-42E8-BB19-B4984B944173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA908726-A950-40FB-B3B9-36C854C29B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA908726-A950-40FB-B3B9-36C854C29B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA908726-A950-40FB-B3B9-36C854C29B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA908726-A950-40FB-B3B9-36C854C29B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C174C8C3-16CF-4D94-BA68-970B916AEAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C174C8C3-16CF-4D94-BA68-970B916AEAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C174C8C3-16CF-4D94-BA68-970B916AEAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C174C8C3-16CF-4D94-BA68-970B916AEAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://erostfs:8080/tfs/negocio
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WebApi\\Minvu.Notificaciones.WebAPI.csproj
+		SccProjectName1 = WebApi
+		SccLocalPath1 = WebApi
+		SccProjectUniqueName2 = Minvu.Notificaciones.IData\\Minvu.Notificaciones.IData.csproj
+		SccProjectName2 = Minvu.Notificaciones.IData
+		SccLocalPath2 = Minvu.Notificaciones.IData
+		SccProjectUniqueName3 = Minvu.Notificaciones.Domain\\Minvu.Notificaciones.Domain.csproj
+		SccProjectName3 = Minvu.Notificaciones.Domain
+		SccLocalPath3 = Minvu.Notificaciones.Domain
+		SccProjectUniqueName4 = Minvu.Notificaciones.Personalizadas.Entidades\\Minvu.Notificaciones.DTO.csproj
+		SccProjectName4 = Minvu.Notificaciones.Personalizadas.Entidades
+		SccLocalPath4 = Minvu.Notificaciones.Personalizadas.Entidades
+	EndGlobalSection
+EndGlobal

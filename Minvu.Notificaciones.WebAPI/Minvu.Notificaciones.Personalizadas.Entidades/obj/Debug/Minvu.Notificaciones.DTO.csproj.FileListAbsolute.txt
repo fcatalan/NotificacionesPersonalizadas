@@ -1,0 +1,7 @@
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\bin\Debug\Minvu.Notificaciones.Personalizadas.Entidades.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\bin\Debug\Minvu.Notificaciones.Personalizadas.Entidades.pdb
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\bin\Debug\log4net.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\bin\Debug\log4net.xml
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\obj\Debug\Minvu.Notificaciones.Personalizadas.Entidades.dll
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\obj\Debug\Minvu.Notificaciones.Personalizadas.Entidades.pdb
+D:\NotificacionesPersonalizadas\Minvu.Notificaciones.WebAPI\Minvu.Notificaciones.Personalizadas.Entidades\obj\Debug\Minvu.Notificaciones.DTO.csprojResolveAssemblyReference.cache

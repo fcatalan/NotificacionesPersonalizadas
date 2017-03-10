@@ -1,0 +1,254 @@
+﻿<div id="content" class="content-site  container clearfix">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Mantenedor</h1>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Palabra:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="para" placeholder=" ">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Mostrar:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="opcion1">Opcion 1</option>
+                                <option value="opcion2">Opcion 2</option>
+                                <option value="opcion3">Opcion 3</option>
+                                <option value="opcion4">Opcion 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-primary" href=""><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+                </div>
+
+            </div>
+            <br>
+
+
+            <br>
+            <div class="row">
+                <p>Palabras Prohibidas</p>
+                <div class="col-md-12">
+                    <div class="table-responsive horizontal-scroll">
+                        <table class="table  table-bordered  dataTable no-footers">
+                            <thead>
+                                <tr>
+
+
+                                    <th>Palabra</th>
+                                    <th>Acción</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Palabra 1</td>
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--eliminar-->
+                                        <a data-toggle="modal" title="Eliminar" href="#eliminar"> <i class="glyphicon glyphicon-remove"></i> </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Palabra 2</td>
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--eliminar-->
+                                        <a data-toggle="modal" title="Eliminar" href="#eliminar"> <i class="glyphicon glyphicon-remove"></i> </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Palabra 3</td>
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--eliminar-->
+                                        <a data-toggle="modal" title="Eliminar" href="#eliminar"> <i class="glyphicon glyphicon-remove"></i> </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <ul class="pagination">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-1">
+                        <a class="btn btn-default" routerLink="/"><span class="glyphicon glyphicon-chevron-left"></span> Volver</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a class="btn btn-primary" data-toggle="modal" href="#crear"><span class="glyphicon glyphicon-check"></span> Crear</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="crear" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Mantenedor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p>Nueva palabra prohibida</p>
+                                <div class="col-md-3">
+                                    <strong>Palabra: </strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="para" placeholder="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" data-toggle="modal" class="btn btn-primary" data-dismiss="modal" data-target="#ConfGuardar">Guardar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ConfGuardar-->
+
+        <div id="ConfGuardar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmar </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    Tomar en cuenta:
+                                    <br><br>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAGQ5JREFUeJztnXl8VOXVx3/n3EnCor4qitS6WxGSmQQNrSSZJGrra91IUOLW6lsVJAn6YutaW0Vr39rFVi0ySUCsb1toSayGKtV+qNqQBdSgZCYJLrVi31I3EC2yJJl7zvtHmDB3ss6dOzMB5/sX95nnnnOY88ud5z4rkCJFihQpUqRIkSJFihQpUqRIkSJFihQpUqRIkeKAhZIdQCLI822cCDWONwhHKWgCSA+FyBgQpQMAVLvBvAdKnxB0m6n4AGS+u65y2odJDj3uHFACyK1pTUuTMacZ0DyBnsZANoROBWOcHXui2EnAGwT4BfoalNalf7j1tYZ7zwo6HXuy2O8F4F2ycbKYrgtU9DxmeAGMjatDwS6wNEH5WYN49dqKrLfi6i/O7JcCKFwcONZkXE2Ky0DwJDMWEWljppU9hv7m5etz/pnMWOyw/whAlfJ8gfPBNJ8h5wLMI75XZAeINwvhnwxsU9VtBHQpoRsASJGuQAYRTVDVIwj0RaicAOaDR+4CJjOeU6ivpdzzLIjUxv8y4Yx6AeTWtKaNkYyrIbgFjCnD3iDYIkAzMa1nMv2maMBuYy7Pt3GiweQRNbJVdAYDBWB8cdgQRDoBeiD9w22/Ge3thdErgIXKBUd1XCXQhUw4cbBqIjCJ8SIBz5BhPtt0/bQ34xmWd8nGyWoa56niIlWcyQxj0MoibyvonpZKz/LR+kQYlQLwLvYXK+tDAE8brI4qXmXCMnT31DUtOP2jRMYXIs+3cSLDVQaS6wA6bbB6Amxgppua57mbEhnfSBhVAvjyos4Jaa6eBwl81YAVBD1grCTVh5oqszckOLwhya/2TyeTbhLGZQy4BqykeJyg32mqzN6e4PAGZdQIoKDKP0tANQwc2e9DkW4lejTo0vtHe0u7cHHgWGH9LoTmgJHWr4LgAyW6vqXS/cckhNePpAsgt6Z13BhJfxigOQN9rsAKNfnOdTdkvZvo2GLhjKrXTnDBuB+gywf6XAU1smfHt9ffnL870bGFk1QBzHik/UuGoU8BcEd+poBfBRXr5ntakhCaY3irAgWqqBqov0JE2gyii5sqs/+ejNgAYOTv0g6T5wuca5C2IjL5It0KfL+Lu6bv78kHgKYKT/MeoysXirsg6An/jJlzTKJWb3XbV5MVX1KeAPlV7XMV6uvXWBK8LsRXrqvMei0ZccWbwuq200V5BYBTLR8IegQ6b9387F8lOqaEPwHyfYE7CbokMvkKrNjj6so9UJMPAI3lOa+OG2/mAvp7yweMNGZ6LL8qcFuiY0roE6DA5/8hiL5nLRVRGLe0VLgfTGQsyabA578ZpD+N7NJW4L6WCs/diYojYQIoqArcA2ChpVCwS4muGC2vRInGu9hfqqDl/YarFXc1V3p+mIgYEiKA/Gr/d0jp55ZCwacCnH8gNPRioaCm3QsxVwN8SHi5qC5YV5n9y3j7j7sAvD5/maquBHOfLwG2G6rnjLbevGSRX+2frkprGDh0X6kICV3SND+7Pp6+4yqAGVXtXyExG5h5TF+hyA6Tja+tr3C/HE/f+xsFvrYZQljD4IPCinczibexPOfVePmN21tAnm/jREP1DxHJ71ZwSSr5/WmuzFlvEEoj+grGiuLJLy/qnBAvv/ERwEJlgrEChGOs3nhuy3zPi3HxeQDQVJ7zvLJcby3l49NdweVQjcvTOi4CyJ/UfgsRInq39GfNFZ5fx8PfgURLRc7jUPzCWkrn5ld33BQPf44LoKAqkEMi91lL5cWjJ7z+Xad9Hai4Pth6uwIN4WUK8/6CRzqynPblqADKamsNAZaBOX1fqWxjSvtG3aWXmk76OpBpuPesoCD4DYh8HCpjcIYY8igWqqM5c9TYlo+nLGAg11pKcxvLM99z0s/ngfUVp22BwXPDyxiYkf+FwHwn/TjWsMjzbZzIRG+Fd2iIoHbdfM9lTvn4PFLg89eBaHboWoDtwaBxyis3Zm5zwr5jTwAG/9CSfOATkHmjU/Y/rwTTcAMEn4auGTgszQj+wCn7jjwBiqo6TukR2RQxQ/am5grPw07YD1FWVma8/n7PhSZ0JgGZqjSeWT9SpVdIzRXtTU/7nfQ3FJ78mafCxcUKPVYVwsA7ppgvdDY/8w+nffXrShf0cJp5auP1096J1fbAkxejxBRZGJH8N1zvb13shO0Q7qLSvE3vdS0D81Teq1siACAQ4WyQcXumd2atZHDl68/XO/J4HAiPtzRXGL9QoKi3hEAEKAA2XOouLH3GJL5509onHVsy1kXdizLM9HJiOgUAwEiToHE3gGtitR3zE8Dr859kKr0ZLgAlXN5S7lkZq+0Qbm9JKVhXApwugJ9VfcJ4SdXY6aLg8WrShQKaw4zxUHnbYPpaW8OqzU75D5FVWHKdKlUzwyUinxJ4NZG+DiJSVTepngfmg0Swk4DLO5rqn3HKd4Gv7UoQLw9dCxBkppOb57ljeuLELIACX+CXIOz7rVcEmivcOU4thPAUlXhU8DKYxij0/o61074P3Cv96hXPOsY0zVpmzoPKuwbTmU6KIKu4tIIUe59q+oBQ+g86G+o+s8TgveAwobSfE+EaCLrIoDMDDU+tdySAhcp5kwJ+BvX1BSj0oZaK7G/HYjYmAXzl4TcPMdJ3bwkfwCDF1U2Vnt/EYjecrKLSBgKKFKjpWFtfPlTd7HPOGR/sGruawcVOisCafMxpX1v/2FD13UWlPwNwi0LePII+zWpoaHBkeVh+Vdu3CLxv2pjIDpcaRzfc4P5siNuGJKa3AFfGniuto1f6r91G1+8HvyM63N6Lsgko6n31kVuHq+9fs2anK2P3BQJpAPHxpuhfc4pLToglhmiTDwBTj0q7Q0XaCTx5q3n47OHqj5RPJhgrAP1XXwHzwT2sA047HykxCUA1ci4/Ld0wb3rPwLVt2CfjXABg4A9vtPxxx0jucVIEdpIPAHV1dSYzLwIAhTnLju+B6LzU3a2gZeFlCh1wPcVIsS0A75KNk629fiIsWDb4HXaQLwGAQqOaKOqECOwmP4QAjQAA5pxo7hsONXkZIH1tICY6w+vzn2TXnm0BaJAjevjor43zPf9n196APkCuvf/oivbeWEQQa/IBgFzmxwDAkEOGqxsN627IelfBjeFlClxq155tAQhRSfg1KRx77euzSbQFAAhkS+F2ROBE8gHADNLRvf/ij4euaYOI71qAUrumbAngjKX+o1jk9H0RiKIn+JTdIAZF0bucmuz/B6MRgVPJBwAGnQMAUDg+79FM0ych0veazaRftjtryJYAjG6cEz7JE4zWeKzRP4K3vwCVdwFkuotn2u71GokIwpOvqnNjSX72OeeMV9Ebe22hzq6dwXhpbvYHShzWLmJOSzO/ZseWvZ8ApsLwSwX92ZadYWhoaAiC+DYAEMVit7e02K6toUQQmfyOxlUxNGYXsnSNe5SZjxFFa0dT/Wr7tgZHAet3Llpkx44tASi0wOqcGgepGjPta+trVbGIwWOF8aesopln2bU1kAjcRaV3O5n8rMK2RwG6XEQ+JcLV6B0mcByGWBuCGpGTEduJktya1nEMnbqvRCQYzHCmu3MQOhrrF0B1KQPjFPxMZuGss+3aihQBgHsBQFWvdyL5vd3A8hkMvrBjbf0m+/aGZo/R0xLeDgDYXfyrd8YMfsfARC2AsTrWE76eTYXefnnB5H9HaydKtL1x1byQCEDmMx5vie0l1RYRALo3+Y/GEB+FJ18MPq+zoT6u+wFtmDf9UwB9+wowwzB374h6zmDUAlAVy3p+YiRqDF7bG1fNU5UlDB5rsj7tKZ5pq+EDWERQGmvyMwtLEpr8EAr2R1z322hjOKIWgChOtjqlzmhtxIB2NP6xPCQCNenprMLS/7RrzL9mzc7OtX+MZWEqZRaWPMpE1yY6+QBApJbvXklPHqzuYEQtAIKeYLlW3RytjRjpEwGYxpDqqqzCknMTHAOQ5OQDgII2WwLC4PspDkb0AiCyrPYR8OZBqsaTXhEANb0ioFWeotLzEuif3EWlS5OZfABgWP/4FDg2ehtRI0dYr4PJ2lNfO9bWV/SKABkqeMpdVHJ+AvySu6h0KYDrkpl8AFAiS+cbAVH3BtoQAFucuDg9bvPvRoBFBIA+leUtvTCO/kZN8gHARHBr+LX2++McHjuNwPEWA0EZ0Th9HNGOtfUVAq0GOJ1Y/pBVVHJRHPyQu6h0CUZJ8gFAusdbvnsSa25GQtQCYEV6+PVHE3u3XE8y2rl2VWWfCKBPZBbNnOmg/VDy54yW5APA4bAOkwtbczMS7LQBLFPJO8uyHJsBFCMWEQB4wu0tsT2KGMaoTD4APPfxKdZ9ByUhAmDLBMfMuo7+++EmDyUiPwAwOA1EU4e7YThmzJg9RiB75+PzdmV2dNJLLHz98Lcs371w9E/j6NsAZHVy5IfRqy5euAtL5u0b2MFd7Y3198dqc/36J3aHdRsfS6a8mFVYEvXrVjz4GMgIv2ZJgABYYZmCLK6RH6sSTzKLS+eCqAoAqeKujsZ6x7ZZCx87YOBEJf2rp3jWMcPfGV84faflu1fGzqhtRHuDQCyvfT3oifrVw2myCkuuY0UN4pD8EFYR8Elq6os5Z18w7PEx8cSAy/LdE3jrYHUHI/onAFmduICJ0dpwEnfxzGuIaCnimPwQllFExpfMbteLp+bPPDpe/oaDVC1nK4hI/AWg0C2Wa6Hjo7XhFJmFpf8FxaNIQPJDWEVApxgufmFK4awvxNvvQAjohPBrZo76MA0bArAOQOgQBzrFk6zikquY5DGAOVHJDxHRJjiVVV7ILC6blCj/ISIH5hSIerl49D8B0L9Zg0DMr1rR4i6c9Q1SfTwZyQ9hEQHTFDa7XnCffdFRiYxBlTLDr0np7WhtRC0Ak7jdEoQgO1obseApKrlS1Pxfh5JP7uKLhz+LcBCsPwc8FUHj+ey8WQlrExHE8t0zm4FobUQtgB7e0x6+NIlYT86taf2PaO3YIcs763JT9NfMbDiS/MKSGjGl1bHZxkCWaZjPT/PO7n/wlcMUP/jaoQD6FsyIwOSMQ6KenBO1ADbMm74L4DBHzOlmxoxo7USLu6j0UoX5W6eSn1VUWgWiucwYL8Bqp0RAzO5uDv5lcvGFcX09DmZwnmVtBqS94ZoT90Rrx960cEGz1YgWDlbXCTK9M2eLYLlDyYe7cOZiAuYJpAdAi9MiYCA7XfkvOcUlhw5/pz0EbPnOicnW+ITNhSFqXQegFLcpWZ6ikkIwVjDD5Ujyi0oeAXGFQHpY6NKMnRPPFMVTTopAgbUA55iC38US61Aw6dfDrwlYa8uOnZtUZY11Trrk5vk2Ot74ycwsSzehjzM4TRU/iTX5WUUliwCaH0p+e9Oq+g0blvSM3TXxMidF0LVnz0UC+TuIvp7pnenYBhEhih9pnwTRvmN1RWCaLv6LHVu2BNB7GjfvW/TITEzs2EYIIeiIrssZfJIIApmT0r43/B2Dk1lY8jCBbghPfugzp0Xwt5ef+7dBxh0AwIQFscQ9EKahF0eszXxl/Vy3rVXI9ncIIayKKLG9Rn0IJxcDADMeqqurs73XsLuo9EEm+m+B9BjKZeHJD+G0CMyPXKsE2CWKvMzisoOGv2PkSMR3zSK2TxWxLQCDOGI/AD2zoKb9OLv2BkKhnl5f+oJdG+6i0l8AuCmU/EBjfaRw+3BSBJ2ddd0MeYuZDTb32N7BI5Izql47gUQsC0E5TWvt2rMtgLUVWW9B0BpmiiF6rV17A8HSu/Ws6zPT1szjLG/pAwC+PZLkh3D6SQAABMOxSTMGXNdaHv+CdbHsGBrbXsGsEUuqdG5uTauDM4R0OwDsHoOo36ndRSU/JcbNe1/1Zo8k+SGcEEFu7vVpIty7x1G66ciJ55m17ekEvc5SyLHtyxTbLmFpaSsEEjZBhI4eIxlXxGLTAtOrAMAujmohaFZh6Y8BujWUfDvLv2IVwZ7xH17EjPEQfav9hac/iNb/QBy6zbwSoH3DzyI7xo03Y9qWLyYBtMyZuoPBkTtp3Orc+TbS284wcWtmZtmIpp5lFZXcT4TbAemGzeSHsCuCGTNmj1XR/wEAENneacTCQmUVWPdKJF665uppUc8CCifm7eKDCD4ogvAWujuvqt2RMwLa1562CpA2ME/lI7qXAAuHjDerqORHBLoDkG4BymJc+AlgYBEMtfgks7jsoH+n99Qx0xQB3snYFXTk8Mf8SYErmLlv9E+AICseitWuI3+p+VVtvybwVaFrUbzZbXS5ndg00lNU4lFQM4CDFXgewI2RGy/snaT5cyIqczL54eTmXp+2e9yHK5kwC727ftQqpMbI2P2yf82aXVPPuvg4Ns0LCHQ7gOMA7CClMwONT8V85l9uTWvaGEnrBHrbFOgN4LGWCs91Q903EpwRQHXgZFW8bjkRXPHt5kpPzAoFgKzCknwlfYrBEwGoAK8SECAgCJUposhjZkMEnxDp5R2Nq+KyZ1FZWZnR+X73T4n0pohDnxVh36VC3lSiyzobVm10wm/vQdP0QF+BoCfIwckvVZy2OVbbjh0ZU+ALVIHQt5mzAJ+IS6e8NDfbkQbQNO/sI4Pcs1CEvsUcsQRKdI8S/c6V1nNX2wurtwxiwjEyi0umseImgZ63V5QQQRCQV4jpt13jupb97bnnot7cciAKqzu/IKa5CYy+IXcRPLJuvseR01gcE4D34VePVFfaW+GBKlDXUuFxtIdwxozZY3dk9JxB0BNViFmx2TTSX4rcuj1ReLwXHNZD6WPG7zpy64YNSxxfJVVQ5X8CoEv6CkQ+NtONU+x2/Ubi6GmUBVWBBUBEw4RwSXO550kn/XxeyPcFLiHCE+FlBMxvqvD4nPLh6LFxze+7F0HUei6wypL8RZuSNnV6f+UrS9qOIZUl1lJpaXrfXe2kH2dPDr2XxDR0DkTClijxBOXu5WW1tcbgN6YIp3jhi660IC8H8+GhMhHZExSeg3up32kpseD40bHry3MCILrT4oT5zC3bpv7EaV8HKj2TJvwMBMuADxl020vzPY7vOxiXE6mhSgXV/ucAtuzgpZBrWipyHo+LzwOEAp//WhBF9u+vbq7wxGXnk/gcH0+kLs74hohYTrQi4SXe6jbbGzwe6BRU+c8RoprwMlG8Q6pXDXZPrMRHAAAa5k3ZSgZdAmB3mLc0U1Ff4GuL+yzi/Y0CX9sMgT4Z3pkmip0kdHFTZfb2ePmNmwAAoKU8uxWEb1qOOAEfJMTP5lf7p8fT9/5EfrV/uhA/az2AS4QZV7Tc4HakN3Ew4ioAAGgu9zwpSpaz7Rg4lFSf91YFbO1wfSCR72srJNXnGbBMISfwjc3lnqfj7T/uAgCAdZXZv4Tq3RGuD1FgjXex34l9fPZLCqoDFxPxn8MP3e5F73Sys2coEiIAAGiuzL5Pgfsiiscq6x8KfP6bExXHaCHfF7gVKnUAxoaXq+o9zRXZMW9tM1Li8xo4BPlVgdsIGKBPQH8/brzMiXWCw2in+JH2g7pJlzH3n0WtpDe3lGf/IpHxJFwAAJC32H8Ng2rAiJw/+AaTXNlYnhPzGPpoJL/aP12FljNhsuUDkW4inuPkkbsjJSkCAABvddtX1URteHcnAEDQA9L79hjdP3byFNJkklnbnn7oNrmDhL7fX/SyDeDZzRWevyYjtqQJAAAKl2w8UUx6EuBpA3zcDqaK5nnuUbEpo13yfW2FSlQVfup3H4JWUZ697oasd5MQGoAkCwAAZvy8ZSyPPegBIqocsILKyiDJHU7MfkkkhUs2nmiaxk8IKBuwgmLRwT0Ztz63YLIjE0fsknQBhCioDlykKksI3H+vHUGPAo+Ri37UPM/9jwFuHzUU1LQfp6LfI8E1A7RxAOi/FJjbUpH9p8RH159RIwAA8Pr8hwnRAwQMuMJIgCABtSB9sKU8u3WgOskiv9o/HYLvKFGZZW5kCBFV5qVd3HXb3gOfRgWjSgAh8hYH8hl4GIwhuotlI0DLgi7UOTXvMFqKH2mf1OOSMlK9dpB2DABAVF8y2FjQVJ71UiLjGwmjUgAAeoeUq/xXqNI9xHTKYNVEYDLLWiV6xjTp2XiMmYdzxuLAVMPQ80j1QgDFEbODI3lDFPesq3CvBFFcDpCMldErgL2U1dYa/9qa+U0huXXAlnQEIvIeEzUDWA+CP+iC3+4T4oyl/qNcQWRDkQ1CnkILBmyjRKIIEPCzLxyxaUXdpZfaXtaeCEa9AMLxVrd/3RSphNL5zBjxFLPe9Yv0LgP/VNA2FXzMrLt174ELBGSI0FhiHE7QCQIcA+jx1tG54XwgyIrVAlStq/TEZV1CPNivBBAif9Gmo+EKfhOKy4hw+vB3xBFBKxgrmYzljeWZ7yU1FhvslwIIx+vzn6SE8yF0nrAURfNXaweBfMbgBig9y67gn2JZmz8a2O8FEE5Zba3x3tYp05SQJ6rTmJANwRSwzTMNRHYAtElIA0y0kUlbJh3+Rtto/12PhgNKAIPx5UWdEzKM4AlCOIqVJpjQwwiUQXtP3FCgS6FdBmi7QrYy44Mew9js1OqbFClSpEiRIkWKFClSpEiRIkWKFClSpEgu/w+XKlQ/wHpstwAAAABJRU5ErkJggg" width="24" height="24">La palabra que desea crear ya se encuentra en la base de datos.
+                                    <br>
+                                    
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eliminar-->
+        <div id="eliminar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Mantenedor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p>Eliminar palabra prohibida</p>
+                                <div class="col-md-12">
+                                    <strong>¿Está seguro de eliminar la palabra seleccionada?</strong>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <br>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" data-toggle="modal" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ver-->
+        <div id="editar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Mantenedor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p>Palabra prohibida</p>
+                                <div class="col-md-3">
+                                    <strong>Palabra: </strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="para" placeholder="palabra Prohibida">
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" data-toggle="modal" class="btn btn-primary" data-dismiss="modal" data-target="#ConfGuardar">Guardar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>

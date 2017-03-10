@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_Notificaciones_PersonalizadasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADJUNTO">
+    <Key>
+      <PropertyRef Name="IDADJUNTO" />
+    </Key>
+    <Property Name="IDADJUNTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDENVIO" Type="int" />
+    <Property Name="RUTA" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="TAMANIO" Type="int" />
+  </EntityType>
+  <EntityType Name="CORREO">
+    <Key>
+      <PropertyRef Name="IDCORREO" />
+    </Key>
+    <Property Name="IDCORREO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDESTADOCORREO" Type="int" />
+    <Property Name="IDDESTINATARIO" Type="int" />
+    <Property Name="IDENVIO" Type="int" />
+    <Property Name="ASUNTO" Type="varchar" MaxLength="150" />
+    <Property Name="CUERPO" Type="varchar(max)" />
+    <Property Name="FECHAHORA" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DESTINATARIO">
+    <Key>
+      <PropertyRef Name="IDDESTINATARIO" />
+    </Key>
+    <Property Name="IDDESTINATARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CASILLACORREO" Type="varchar" MaxLength="320" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ENVIO">
+    <Key>
+      <PropertyRef Name="IDENVIO" />
+    </Key>
+    <Property Name="IDENVIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" />
+    <Property Name="IDPLANTILLACORREO" Type="int" />
+    <Property Name="IDSISTEMAEMISOR" Type="int" />
+    <Property Name="IDESTADOENVIO" Type="int" />
+    <Property Name="FECHAHORA" Type="datetime" />
+    <Property Name="CONCOPIA" Type="varchar(max)" />
+    <Property Name="CONCOPIAOCULTA" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ESTADO_CORREO">
+    <Key>
+      <PropertyRef Name="IDESTADOCORREO" />
+    </Key>
+    <Property Name="IDESTADOCORREO" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ESTADO_ENVIO">
+    <Key>
+      <PropertyRef Name="IDESTADOENVIO" />
+    </Key>
+    <Property Name="IDESTADOENVIO" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ESTADO_NOTIFICACION">
+    <Key>
+      <PropertyRef Name="IDESTADONOTIFICACION" />
+    </Key>
+    <Property Name="IDESTADONOTIFICACION" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ESTADO_PLANTILLA_CORREO">
+    <Key>
+      <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+    </Key>
+    <Property Name="IDESTADOPLANTILLACORREO" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="EVENTO">
+    <Key>
+      <PropertyRef Name="IDEVENTO" />
+    </Key>
+    <Property Name="IDEVENTO" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" />
+    <Property Name="DESCRIPCION" Type="varchar(max)" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NOTIFICACION">
+    <Key>
+      <PropertyRef Name="IDNOTIFICACION" />
+    </Key>
+    <Property Name="IDNOTIFICACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" />
+    <Property Name="IDESTADONOTIFICACION" Type="int" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="ASUNTO" Type="varchar" MaxLength="150" />
+    <Property Name="MENSAJE" Type="varchar(max)" />
+    <Property Name="FECHAHORAINICIO" Type="datetime" />
+    <Property Name="FECHAHORAFIN" Type="datetime" />
+    <Property Name="ESTADOVIGENCIA" Type="bit" />
+    <Property Name="FECHACREACION" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NOTIFICACION_SISTEMA_EMISOR">
+    <Key>
+      <PropertyRef Name="IDNOTIFICACION" />
+      <PropertyRef Name="IDSISTEMAEMISOR" />
+    </Key>
+    <Property Name="IDNOTIFICACION" Type="int" Nullable="false" />
+    <Property Name="IDSISTEMAEMISOR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PALABRAS_PROHIBIDAS">
+    <Key>
+      <PropertyRef Name="IDPALABRAPROHIBIDA" />
+    </Key>
+    <Property Name="IDPALABRAPROHIBIDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" />
+    <Property Name="PALABRA" Type="varchar" MaxLength="25" />
+    <Property Name="FECHAINGRESO" Type="datetime" />
+    <Property Name="IDUSUARIOMODIFICACION" Type="varchar" MaxLength="30" />
+    <Property Name="FECHAMODIFICACION" Type="datetime" />
+    <Property Name="ESTADOVIGENCIA" Type="bit" />
+  </EntityType>
+  <EntityType Name="PLANTILLA_CORREO">
+    <Key>
+      <PropertyRef Name="IDPLANTILLACORREO" />
+    </Key>
+    <Property Name="IDPLANTILLACORREO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDESTADOPLANTILLACORREO" Type="int" />
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="ASUNTO" Type="varchar" MaxLength="150" />
+    <Property Name="CUERPO" Type="varchar(max)" />
+    <Property Name="FECHACREACION" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SISTEMA_EMISOR">
+    <Key>
+      <PropertyRef Name="IDSISTEMAEMISOR" />
+    </Key>
+    <Property Name="IDSISTEMAEMISOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CASILLACORREO" Type="varchar" MaxLength="320" />
+    <Property Name="NOMBRESISTEMA" Type="varchar" MaxLength="100" />
+    <Property Name="VIGENTE" Type="bit" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FECHAULTIMOINGRESO" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__ENVIO__IDSISTEMA__0169315C">
+    <End Role="SISTEMA_EMISOR" Type="Self.SISTEMA_EMISOR" Multiplicity="0..1" />
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SISTEMA_EMISOR">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NOTIFICAC__IDEST__00750D23">
+    <End Role="ESTADO_NOTIFICACION" Type="Self.ESTADO_NOTIFICACION" Multiplicity="0..1" />
+    <End Role="NOTIFICACION" Type="Self.NOTIFICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_NOTIFICACION">
+        <PropertyRef Name="IDESTADONOTIFICACION" />
+      </Principal>
+      <Dependent Role="NOTIFICACION">
+        <PropertyRef Name="IDESTADONOTIFICACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADJUNTO_REFERENCE_ENVIO">
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="0..1" />
+    <End Role="ADJUNTO" Type="Self.ADJUNTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENVIO">
+        <PropertyRef Name="IDENVIO" />
+      </Principal>
+      <Dependent Role="ADJUNTO">
+        <PropertyRef Name="IDENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_DESTINATARIO">
+    <End Role="DESTINATARIO" Type="Self.DESTINATARIO" Multiplicity="0..1" />
+    <End Role="CORREO" Type="Self.CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATARIO">
+        <PropertyRef Name="IDDESTINATARIO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDDESTINATARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_ENVIO">
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="0..1" />
+    <End Role="CORREO" Type="Self.CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENVIO">
+        <PropertyRef Name="IDENVIO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_ESTADOCORREO">
+    <End Role="ESTADO_CORREO" Type="Self.ESTADO_CORREO" Multiplicity="0..1" />
+    <End Role="CORREO" Type="Self.CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_CORREO">
+        <PropertyRef Name="IDESTADOCORREO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDESTADOCORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_ESTADOENVIO">
+    <End Role="ESTADO_ENVIO" Type="Self.ESTADO_ENVIO" Multiplicity="0..1" />
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_ENVIO">
+        <PropertyRef Name="IDESTADOENVIO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDESTADOENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_PLANTILLACORREO">
+    <End Role="PLANTILLA_CORREO" Type="Self.PLANTILLA_CORREO" Multiplicity="0..1" />
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDPLANTILLACORREO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDPLANTILLACORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="ENVIO" Type="Self.ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVENTO_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTIFICACION_REFERENCE_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="NOTIFICACION" Type="Self.NOTIFICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="NOTIFICACION">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_NOTIFICACION">
+    <End Role="NOTIFICACION" Type="Self.NOTIFICACION" Multiplicity="1" />
+    <End Role="NOTIFICACION_SISTEMA_EMISOR" Type="Self.NOTIFICACION_SISTEMA_EMISOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NOTIFICACION">
+        <PropertyRef Name="IDNOTIFICACION" />
+      </Principal>
+      <Dependent Role="NOTIFICACION_SISTEMA_EMISOR">
+        <PropertyRef Name="IDNOTIFICACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_SISTEMA_EMISOR">
+    <End Role="SISTEMA_EMISOR" Type="Self.SISTEMA_EMISOR" Multiplicity="1" />
+    <End Role="NOTIFICACION_SISTEMA_EMISOR" Type="Self.NOTIFICACION_SISTEMA_EMISOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SISTEMA_EMISOR">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Principal>
+      <Dependent Role="NOTIFICACION_SISTEMA_EMISOR">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="PALABRAS_PROHIBIDAS" Type="Self.PALABRAS_PROHIBIDAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PALABRAS_PROHIBIDAS">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO">
+    <End Role="ESTADO_PLANTILLA_CORREO" Type="Self.ESTADO_PLANTILLA_CORREO" Multiplicity="0..1" />
+    <End Role="PLANTILLA_CORREO" Type="Self.PLANTILLA_CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_PLANTILLA_CORREO">
+        <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+      </Principal>
+      <Dependent Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANTILLACORREO_REFERENCE_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="PLANTILLA_CORREO" Type="Self.PLANTILLA_CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_Notificaciones_PersonalizadasModelStoreContainer">
+    <EntitySet Name="ADJUNTO" EntityType="Self.ADJUNTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CORREO" EntityType="Self.CORREO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DESTINATARIO" EntityType="Self.DESTINATARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENVIO" EntityType="Self.ENVIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_CORREO" EntityType="Self.ESTADO_CORREO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_ENVIO" EntityType="Self.ESTADO_ENVIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_NOTIFICACION" EntityType="Self.ESTADO_NOTIFICACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO_PLANTILLA_CORREO" EntityType="Self.ESTADO_PLANTILLA_CORREO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTIFICACION" EntityType="Self.NOTIFICACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTIFICACION_SISTEMA_EMISOR" EntityType="Self.NOTIFICACION_SISTEMA_EMISOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PALABRAS_PROHIBIDAS" EntityType="Self.PALABRAS_PROHIBIDAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANTILLA_CORREO" EntityType="Self.PLANTILLA_CORREO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SISTEMA_EMISOR" EntityType="Self.SISTEMA_EMISOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ENVIO__IDSISTEMA__0169315C" Association="Self.FK__ENVIO__IDSISTEMA__0169315C">
+      <End Role="SISTEMA_EMISOR" EntitySet="SISTEMA_EMISOR" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NOTIFICAC__IDEST__00750D23" Association="Self.FK__NOTIFICAC__IDEST__00750D23">
+      <End Role="ESTADO_NOTIFICACION" EntitySet="ESTADO_NOTIFICACION" />
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADJUNTO_REFERENCE_ENVIO" Association="Self.FK_ADJUNTO_REFERENCE_ENVIO">
+      <End Role="ENVIO" EntitySet="ENVIO" />
+      <End Role="ADJUNTO" EntitySet="ADJUNTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_DESTINATARIO" Association="Self.FK_CORREO_REFERENCE_DESTINATARIO">
+      <End Role="DESTINATARIO" EntitySet="DESTINATARIO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_ENVIO" Association="Self.FK_CORREO_REFERENCE_ENVIO">
+      <End Role="ENVIO" EntitySet="ENVIO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_ESTADOCORREO" Association="Self.FK_CORREO_REFERENCE_ESTADOCORREO">
+      <End Role="ESTADO_CORREO" EntitySet="ESTADO_CORREO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_ESTADOENVIO" Association="Self.FK_ENVIO_REFERENCE_ESTADOENVIO">
+      <End Role="ESTADO_ENVIO" EntitySet="ESTADO_ENVIO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_PLANTILLACORREO" Association="Self.FK_ENVIO_REFERENCE_PLANTILLACORREO">
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_USUARIO" Association="Self.FK_ENVIO_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVENTO_USUARIO" Association="Self.FK_EVENTO_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTIFICACION_REFERENCE_USUARIO" Association="Self.FK_NOTIFICACION_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_NOTIFICACION" Association="Self.FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_NOTIFICACION">
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+      <End Role="NOTIFICACION_SISTEMA_EMISOR" EntitySet="NOTIFICACION_SISTEMA_EMISOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_SISTEMA_EMISOR" Association="Self.FK_NOTIFICACIONSISTEMAEMISOR_REFERENCE_SISTEMA_EMISOR">
+      <End Role="SISTEMA_EMISOR" EntitySet="SISTEMA_EMISOR" />
+      <End Role="NOTIFICACION_SISTEMA_EMISOR" EntitySet="NOTIFICACION_SISTEMA_EMISOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO" Association="Self.FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PALABRAS_PROHIBIDAS" EntitySet="PALABRAS_PROHIBIDAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO" Association="Self.FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO">
+      <End Role="ESTADO_PLANTILLA_CORREO" EntitySet="ESTADO_PLANTILLA_CORREO" />
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANTILLACORREO_REFERENCE_USUARIO" Association="Self.FK_PLANTILLACORREO_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

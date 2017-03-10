@@ -1,0 +1,178 @@
+/* You can add global styles to this file, and also import other style files */
+.pad-top-5 {padding-top: 5px}
+.pad-top-10 {padding-top: 10px}
+.pad-top-15 {padding-top: 15px}
+.pad-top-20 {padding-top: 20px}
+
+.pad-bottom-5 {padding-bottom: 5px}
+.pad-bottom-10 {padding-bottom: 10px}
+.pad-bottom-15 {padding-bottom: 15px}
+.pad-bottom-20 {padding-bottom: 20px}
+
+.clickable {cursor: pointer}
+
+.text-green {text-color: #080}
+
+
+.row-md-1 {height: 8vh}
+.row-md-2 {height: 16vh}
+.row-md-3 {height: 25vh}
+.row-md-4 {height: 33vh}
+.row-md-5 {height: 42vh}
+.row-md-6 {height: 50vh}
+.row-md-7 {height: 58vh}
+.row-md-8 {height: 67vh}
+.row-md-9 {height: 75vh}
+.row-md-10 {height: 83vh}
+.row-md-11 {height: 92vh}
+.row-md-12 {height: 100vh}
+
+.row-md-max-1 {max-height: 8vh}
+.row-md-max-2 {max-height: 16vh}
+.row-md-max-3 {max-height: 25vh}
+.row-md-max-4 {max-height: 33vh}
+.row-md-max-5 {max-height: 42vh}
+.row-md-max-6 {max-height: 50vh}
+.row-md-max-7 {max-height: 58vh}
+.row-md-max-8 {max-height: 67vh}
+.row-md-max-9 {max-height: 75vh}
+.row-md-max-10 {max-height: 83vh}
+.row-md-max-11 {max-height: 92vh}
+.row-md-max-12 {max-height: 100vh}
+
+
+.row-center {vertical-align: middle; margin: 0 auto;}
+
+.width-005 {width: 5%}
+.width-010 {width: 10%}
+.width-015 {width: 15%}
+.width-020 {width: 20%}
+.width-025 {width: 25%}
+.width-030 {width: 35%}
+.width-035 {width: 35%}
+.width-040 {width: 40%}
+.width-045 {width: 45%}
+.width-050 {width: 50%}
+.width-055 {width: 55%}
+.width-060 {width: 60%}
+.width-065 {width: 65%}
+.width-070 {width: 70%}
+.width-075 {width: 75%}
+.width-080 {width: 80%}
+.width-085 {width: 85%}
+.width-090 {width: 90%}
+.width-095 {width: 95%}
+.width-100 {width: 100%}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+    max-width:1200px;
+  }
+}
+
+.float-left-padding {
+	float: left;
+	padding-left: 10px;
+}
+
+.overflow-vertical {
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: block;
+}
+
+.contenedor-vertical-800 {
+	height: 800px;
+}
+
+.contenedor-vertical-700 {
+	height: 700px;
+}
+
+.contenedor-vertical-600 {
+	height: 600px;
+}
+
+.contenedor-vertical-500 {
+	height: 500px;
+}
+
+.contenedor-vertical-400 {
+	height: 400px;
+}
+
+.contenedor-vertical-300 {
+	height: 300px;
+}
+
+.contenedor-vertical-200 {
+	height: 200px;
+}
+
+.contenedor-vertical-100 {
+	height: 100px;
+}
+
+.contenedor-vertical-50 {
+	height: 50px;
+}
+
+
+@media (min-width: 992px) {
+	.col-md-0-5, .col-md-1-5, .col-md-2-5, .col-md-3-5, .col-md-4-5, .col-md-5-5, .col-md-6-5, .col-md-7-5, .col-md-8-5, .col-md-9-5, .col-md-10-5, .col-md-11-5 {
+		float: left;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+
+	.col-md-0-5 {
+		width: 4.16666667%
+	}
+
+	.col-md-1-5 {
+		width: 12.5%
+	}
+
+	.col-md-2-5 {
+		width: 20.83333333%
+	}
+
+	.col-md-3-5 {
+		width: 29.16666667%
+	}
+
+	.col-md-4-5 {
+		width: 37.5%
+	}
+
+	.col-md-5-5 {
+		width: 45.83333333%
+	}
+
+	.col-md-6-5 {
+		width: 54.16666667%
+	}
+
+	.col-md-7-5 {
+		width: 62.5%
+	}
+
+	.col-md-8-5 {
+		width: 70.83333333%
+	}
+
+	.col-md-9-5 {
+		width: 79.16666667%
+	}
+
+	.col-md-10-5 {
+		width: 87.5%
+	}
+
+	.col-md-11-5 {
+		width: 95.83333333%
+	}
+}

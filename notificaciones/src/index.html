@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notificaciones</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+ <!--   <script src="/node_modules/angular-i18n/angular-locale_es-cl.js"></script>-->
+ <!-- <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>-->
+     <script src="assets/js/jquery.min.js" type="text/javascript"></script> 
+    <script src="assets/js/bootstrap.js" type="text/javascript"></script>
+    <script src="assets/js/modernizr.js" type="text/javascript"></script>
+    <!-- Toolbar accesible -->
+    <link href="assets/css/a11y.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/a11y-toolbar.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/a11y-fontsize.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/styles-notificaciones.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+    <script src="assets/js/a11y.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var a11y_stylesheet_path = "assets/css/a11y-contrast.css";
+    </script>
+		<script src="ckeditor/ckeditor.js" type="text/javascript"></script>
+</head>
+<body class="inside cat-online row-md-12" id="top">
+  <app-root>
+
+		<div id="content" class="content-site  container clearfix row-md-12 row-center">
+				<div clas="row">
+					<div class="col-md-12 text-center">
+						<img src="http://cdn.minvu.cl/NGM5.0/images/minvu-logo-footer.jpg" alt="Logo minvu" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center"><img src="loading-bar.gif"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">Cargando</div>
+				</div>
+		</div>
+	</app-root>
+    <div id="alert" class="modal fade in" role="dialog" style="padding-right: 17px;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title" id="alertTitle"></h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12" id="alertContent">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-md-12">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="$('#alert').modal('hide')">Aceptar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>  
+</body>
+</html>

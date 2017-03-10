@@ -1,0 +1,186 @@
+<div id="content" class="content-site  container clearfix" ng-controller="ExampleController">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h2>Bandeja de Salida</h2>
+            <br />
+            <h4>Sistema Emisor: <span *ngIf="this.respuestaSistEmisor && this.respuestaSistEmisor.sistemaEmisor">{{this.respuestaSistEmisor.sistemaEmisor.NombreSistema}}</span></h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row text-center">
+                        <div class="col-md-2">
+                            <div class="col-md-5">
+                                <p> Mostrar:</p>
+                            </div>
+                            <div class="col-md-7">
+                                <select class="form-control col-md-12" id="cantPorPag" [(ngModel)]="consultaBandejaEntrada.tamanoPagina">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="0">Todos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Asunto:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" 
+                                                                    id="asunto" placeholder="Ingrese parte del asunto"
+                                                                    [(ngModel)]="consultaBandejaEntrada.asunto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Fecha:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <my-date-picker [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateChanged($event)" >
+                                    </my-date-picker>
+                                    <span ng-bind="consultaBandejaEntrada.fecha" style="display: block; margin-top: 5px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                                                    <p> Nombre Usuario</p>
+                                </div>
+                                <div class="col-md-8">
+                                                                <input  ng2-auto-complete
+                                                                                id="consultaBandejaEntrada.nombreUsuario"
+                                                                                placeholder="Enter para elegir"
+                                                                                [source]="usuarioService.obtenerListaSugerenciasUsuarios" 
+                                                                                no-match-found-text="No se encontraron usuarios"
+                                                                                display-property-name="name"
+                                                                                value-property-name="description"
+                                                                                path-to-data="usuarios"
+                                                                                loading-text="Cargando..."
+                                                                                min-chars="3"
+                                                                                class="form-control"
+                                                                                (valueChanged)="onNameChanged($event)"
+                                                                                />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-primary clickable" (click)="recargarGrilla(true)"><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="assets/img/loading.gif" style="display:none" id="imgCargandoBandejaSalida"/>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="table-responsive horizontal-scroll" id="divGrilla">
+                            <table class="table  table-bordered  dataTable no-footers">
+                                <thead>
+                                    <tr>
+                                        <th>Asunto</th>
+                                        <th>Fecha</th>
+                                        <th>Usuario</th>
+                                        <th>Para</th>
+                                        <th>Con Copia</th>
+                                        <th>Con Copia Oculta</th>
+                                        <th>Cuerpo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let detalle of infoGrilla.correos">
+                                        <td>{{detalle.asunto}}</td>
+                                        <td>{{detalle.fechaHora}}</td>
+                                        <td>{{detalle.usuario}}</td>
+                                        <td [innerHTML]="separarDireccionesCorreo(detalle.para)"></td>
+                                        <td [innerHTML]="separarDireccionesCorreo(detalle.cc)"></td>
+                                        <td [innerHTML]="separarDireccionesCorreo(detalle.cco)"></td>
+                                        <td><a class="btn btn-xs clickable" data-toggle="previsualizar" (click)="verContenidoCorreo(detalle.id);" onclick="$('#previsualizar').modal('show')">
+                                                    <span class="glyphicon glyphicon-list-alt"></span
+                                                ></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right">
+                            <ul class="pagination">
+                                <li><a class="clickable" (click)="moverPaginaInicial()" title="Ir a página inicial">⏮</a></li>
+                                <li><a class="clickable" (click)="moverPagina(-10)" title="Ir 10 páginas atrás">⏪</a></li>
+                                <li><a class="clickable" (click)="moverPagina(-1)" title="Retroceder una página">◀️</a></li>
+                                <li><a disabled>{{consultaBandejaEntrada.nroPagina+1}}/{{getTotalPaginas()}}</a></li>
+                                <li><a class="clickable" (click)="moverPagina(1)" title="Avanzar una página">▶️</a></li>
+                                <li><a class="clickable" (click)="moverPagina(10)" title="Ir 10 páginas adelante">⏩</a></li>
+                                <li><a class="clickable" (click)="moverPaginaFinal()" title="Ir a página final">⏭</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-default clickable goToTop"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="previsualizar" class="modal fade in" role="dialog" style="padding-right: 17px;">
+    <div class="modal-dialog width-065">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Previsualizar</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-0-5">
+                        <b>Para:</b>
+                    </div>
+                    <div class="col-md-11-5">
+                        {{detalleCorreo.para}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0-5">
+                        <b>CC:</b>
+                    </div>
+                    <div class="col-md-11-5" [innerHTML]="separarDireccionesCorreo(detalleCorreo.cc)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0-5">
+                        <b>CCO:</b>
+                    </div>
+                    <div class="col-md-11-5" [innerHTML]="separarDireccionesCorreo(detalleCorreo.cco)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="prevCuerpo" class="col-md-12 ql-editor row-md-max-8 overflow-vertical" [innerHTML]="cuerpoSaneado">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

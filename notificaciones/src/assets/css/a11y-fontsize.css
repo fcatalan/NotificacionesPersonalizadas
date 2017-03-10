@@ -1,0 +1,17 @@
+/* enqueue these as a separate stylesheet so they can be filtered */
+.fontsize .content-site, .fontsize .content-site h1, .fontsize .content-site h2, .fontsize .content-site h3, .fontsize .content-site h4, .fontsize .content-site h5, .fontsize .content-site h6, .fontsize .content-site p, .fontsize .content-site li, .fontsize .content-site label, .fontsize .content-site input, .fontsize .content-site select, .fontsize .content-site textarea, .fontsize .content-site legend, .fontsize .content-site code, .fontsize .content-site pre, .fontsize .content-site dd, .fontsize .content-site dt, .fontsize .content-site blockquote {
+    font-size: 150% !important;
+    line-height: 1.4;
+}
+
+.fontsize .content-site li li {
+    font-size: 110% !important;
+}
+
+.fontsize .content-site li li li {
+    font-size: 100% !important;
+}
+
+.fontsize .content-site .a11y-toolbar ul li {
+    font-size: auto !important;
+}

@@ -1,0 +1,38 @@
+<div id="content" class="content-site  container clearfix">
+    <div class="row">
+
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h1>{{titulo}}</h1>
+            
+            <div class="col-md-5">
+                <p> Seleccione el sistema desde el que se enviará el correo (*):</p>
+            </div>
+            <div class="col-md-4">
+                <!--<select class="form-control">
+                    <option value="opcion1">Subsidio -  Arriendo</option>
+                    <option value="opcion2">Opcion 2</option>
+                    <option value="opcion3">Opcion 3</option>
+                    <option value="opcion4">Opcion 4</option>
+                </select>-->
+                <select name="sistemaEmisorlst" class="form-control">
+                    <option *ngFor="let item of sistemasEmisores" [value]="item.IdEmisor">{{item.NombreSistema}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-default" [routerLink]="['/nuevoCorreo']"><span style="color: green" class="glyphicon glyphicon-plus-sign"></span> Crear Nuevo Correo</a>
+                <br>
+                <br>
+               
+                <a class="btn btn-default" [routerLink]="['/seleccionar-plantilla-correo']"><span style="color: green" class="glyphicon glyphicon-list-alt"></span> Crear Usando Plantilla</a>
+
+
+                
+
+            </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br />
+        </div>
+    </div>
+    <!-- fin de .main -->
+</div>
+<router-outlet></router-outlet>

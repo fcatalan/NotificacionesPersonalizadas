@@ -1,0 +1,358 @@
+<div id="content" class="content-site  container clearfix">
+		<div class="row">
+			<div id="main" class="col-md-12 clearfix" role="main">
+				<div class="row">
+				<div class="col-md-6">
+
+				<h3>Enviar Notificaciones</h3>
+				<br>
+					</div>
+						<!--
+				<div class="col-md-6" align="right">
+				<a class="btn btn-primary" routerLink="/nuevanotificacion"><span style="color: white" class="glyphicon glyphicon-list-alt"></span> Crear Nueva Notificaci&oacute;n</a>
+					</div>-->
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="row">
+							<div class="col-md-4">
+								<p> Nombre:</p>
+							</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="b_nombre" [(ngModel)]="b_nombre"  placeholder=" ">
+							</div>
+						</div>
+					</div>
+					
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Fecha Inicio:</p>
+								</div>
+								<div class="col-md-8">
+									<my-date-picker [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateChangedFechaInicio($event)" >
+                                    </my-date-picker>
+									<!--<input type="text" class="form-control" id="b_fechainicio" [(ngModel)]="b_fechainicio" placeholder="21/01/2017">-->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Fecha Término:</p>
+								</div>
+								<div class="col-md-8">
+									<my-date-picker [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateChangedFechaFin($event)" >
+                                    </my-date-picker>
+									<span ng-bind="b_fechafin" style="display: block; margin-top: 5px;"></span>
+								<!--<input type="text" class="form-control" id="b_fechafin"  [(ngModel)]="b_fechafin" placeholder="01/02/2017">-->
+								</div>
+							</div>
+						</div>
+				
+						</div>
+				<br>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Usuario:</p>
+								</div>
+								<div class="col-md-8">
+									
+									<select name="CmbUsuarios" class="form-control" (change)="onChangeCmbUsuario($event)">
+									<option value="-1">Seleccione Usuario</option>
+									<option *ngFor="let item of usuariosLst" [value]="item.NombreUsuario">{{item.NombreUsuario}}</option>
+									</select>
+
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Estado:</p>
+								</div>
+								<div class="col-md-8">
+									<select class="form-control" name="cmbEstadoNotificacion" (change)="onChangeCmbEstadoNotificacion($event)">
+									  <option value="-1">Todo</option>
+									  <option value="1">Activa</option>
+									  <option value="2">Histórico</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Mostrar:</p>
+								</div>
+								<div class="col-md-8">
+									<select class="form-control" name="cmbMostrarRegistros" (change)="onChangecmbMostrarRegistros($event)">
+									  <option value="Todos">Todos</option>
+									  <option value="5">5 registros</option>
+									  <option value="10">10 registros</option>
+									  <option value="15">25 registros</option>
+									  <option value="20">50 registros</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					
+						<!--<div class="col-md-1">
+						 	<a class="btn btn-primary" (click)="prepararFiltroBusqueda()"><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+						</div>-->
+					</div>			
+				<br>
+<!--   implementacion auribe 01/02/2017 -->
+                <br>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Seleccione Sistema:</p>
+								</div>
+								<div class="col-md-8">
+									
+
+                        <select name="CmbUsuarios" class="form-control" (change)="onChangeCmbSistemaEmisor($event)">
+                          <option value="-1">Seleccione Sistema</option>
+                          <option *ngFor="let item of sistemaEmisorLst" [value]="item.IdEmisor">{{item.NombreSistema}}</option>
+                        </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							
+						</div>
+					<div class="col-md-2">
+							<div class="row">
+								<div class="col-md-4">
+							
+								</div>
+							
+							</div>
+						</div>
+					
+						<div class="col-md-1" class="btn pull-right">
+							<a class="btn btn-primary" (click)="obtenerNotificaciones('NuevaBusqueda')"><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+						</div>
+					</div>			
+				<br>
+
+<!-- Fin implementaciom auribe 01/02/2017 -->
+
+				<div class="row">
+		
+						<div class="col-md-12">
+
+							<div class="table-responsive horizontal-scroll">
+								<table class="table  table-bordered  dataTable no-footers">
+									<thead>
+										<tr>				
+											<th>Nombre</th>
+											<th>Fecha Inicio</th>
+											<th>Fecha Término</th>
+											<th>Usuario</th>
+											<th>Estado</th>
+											<th>Acciones</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr *ngFor="let item of notificacionTextLst" id="{{item.IdNotificacion}}">
+											<td>{{item.Nombre}}</td>
+											<td>{{item.StrFechaInicio}}</td>
+											<td>{{item.StrFechaFin}}</td>
+											<td>{{item.IdUsuario}}</td>
+										    <td>{{item.EstadoNotificacion}}</td>
+											<td><!--ver--> 
+												<a data-toggle="modal" title="Ver" href="#previsualizar"  (click)="verUnaNotificacion(item.IdNotificacion)" > <i class="glyphicon glyphicon-eye-open"></i> </a>
+												<!--Editar-->
+												<a data-toggle="modal" title="Editar" href="#editar" (click)="actualizarNotificacion(item.IdNotificacion)" > <i class="glyphicon glyphicon-edit"></i> </a>
+												<!--Crear -->
+												<a routerLink='/crearNotificacion/{{item.IdNotificacion}}' title="crear notificación" ><i class="glyphicon glyphicon-list-alt"></i> </a></td>
+												
+											</tr>
+									</tbody>
+								</table>
+
+
+                         <router-outlet></router-outlet>
+
+
+							</div>
+							<div class="text-right">
+								<ul class="pagination">
+                                <li><a class="clickable" (click)="irPaginaInicio()">⏮</a></li>
+                                <li><a class="clickable" (click)="paginacionAnterior(numPaginaActual-3)">⏪</a></li>
+                                <li><a class="clickable" (click)="paginacionAnterior(numPaginaActual-1)">◀️</a></li>
+                                <li><a disabled>{{numPaginaActual}}/{{totalPaginas}}</a></li>
+                                <li><a class="clickable" (click)="paginacionSiguiente(numPaginaActual+1)">▶️</a></li>
+                                <li><a class="clickable" (click)="paginacionSiguiente(numPaginaActual+3)">⏩</a></li>
+                                <li><a class="clickable" (click)="irPaginaFinal()">⏭</a></li>
+								</ul>
+							</div>
+					
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="col-sm-5">
+						 <!--	<a class="btn btn-primary" data-toggle="modal" href="#confirmar"><span class="glyphicon glyphicon-check" ></span> Utilizar</a>-->
+						</div>
+					</div>
+				</div>
+				<a class="btn btn-default" href="#top"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+				<br/>
+			</div>
+		</div>
+		<!-- fin de .main -->
+	</div>
+	<!-- fin de .row -->
+	
+	<!-- fin de .content -->
+
+	<br />
+	<hr>
+
+	<script src="http://cdn.minvu.cl/NGM5.0/js/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	<script src="http://cdn.minvu.cl/NGM5.0/js/bootstrap/3.3.7/bootstrap.js" type="text/javascript"></script>
+	<script src="http://cdn.minvu.cl/NGM5.0/js/modernizr.js" type="text/javascript"></script>
+
+
+	<!-- Toolbar accesible -->
+	<link href="http://cdn.minvu.cl/NGM5.0/toolbar-accesible/css/a11y.css" rel="stylesheet" type="text/css" />
+	<link href="http://cdn.minvu.cl/NGM5.0/toolbar-accesible/css/a11y-toolbar.css" rel="stylesheet" type="text/css" />
+	<link href="http://cdn.minvu.cl/NGM5.0/toolbar-accesible/css/a11y-fontsize.css" rel="stylesheet" type="text/css" />
+	<!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+	<script src="http://cdn.minvu.cl/NGM5.0/toolbar-accesible/js/a11y.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var a11y_stylesheet_path = "http://cdn.minvu.cl/NGM5.0/toolbar-accesible/css/a11y-contrast.css";
+	</script>
+
+	<!-- Previsualizar-->
+
+	<div id="previsualizar" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Notificación</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						
+							<div class="col-md-12">
+									<p>{{miNtoficacion.Nombre}}</p>
+								<div class="col-md-6">
+							<strong>Fecha Inicio-Hora activación: </strong>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" id="fechaIni" placeholder="{{miNtoficacion.FechaHorainicio | date:'dd-MM-yyyy'}}" disabled>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" id="para" placeholder="{{miNtoficacion.HoraInicio}}" disabled>
+								</div>
+							</div>
+						</div>
+					<br>
+				<div class="row">
+						<div class="col-md-12">
+								<div class="col-md-6">
+							<strong>Fecha Término-Hora activación: </strong>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" id="fechafin" placeholder="{{miNtoficacion.FechaHorafin | date:'dd-MM-yyyy'}}" disabled>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" id="para" placeholder="{{miNtoficacion.HoraFin}}" disabled>
+								</div>
+							</div>						
+						</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+					<textarea  disabled rows="4" class="form-control" cols="50">{{miNtoficacion.Mensaje}} 
+</textarea>
+							</div>
+						</div>
+					<br>
+					</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Editar -->
+
+	<div id="editar" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Notificación</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						
+							<div class="col-md-12">
+									<p>{{miNtoficacion.nombre}} </p>
+								<div class="col-md-6">
+							<strong>Fecha Inicio-Hora activación: </strong>
+								</div>
+								<div class="col-md-4">	
+
+                                     <my-date-picker [options]="myDatePickerOptions"  [selDate]="selectedDateInicio"
+                                        (dateChanged)="onDateChangedFechaInicioModalEditar($event)" >
+                                    </my-date-picker>
+									<span ng-bind="strFechaInicioModalEditar" style="display: block; margin-top: 5px;"></span>
+								</div>
+								<div class="col-md-2">	
+									<input type="text" class="form-control" id="strHoraInicioModalEditar" [(ngModel)]="strHoraInicioModalEditar" placeholder="">
+								</div>
+							</div>
+						</div>
+					<br>
+				<div class="row">
+						<div class="col-md-12">
+								<div class="col-md-6">
+							<strong>Fecha Término-Hora activación: </strong>
+								</div>
+								<div class="col-md-4">	
+
+                                 <my-date-picker [options]="myDatePickerOptions" [selDate]="selectedDateFin"
+                                        (dateChanged)="onDateChangedFechaFinModalEditar($event)" >
+                                    </my-date-picker>
+									<span ng-bind="strFechaFinModalEditar" style="display: block; margin-top: 5px;"></span>
+								</div>
+								<div class="col-md-2">	
+									<input type="text" class="form-control" id="strHoraFinModalEditar" [(ngModel)]="strHoraFinModalEditar" placeholder="" >
+								</div>
+							</div>						
+						</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+					<textarea rows="4" class="form-control" id="strMensajeModalEditar" [(ngModel)]="strMensajeModalEditar" cols="50"></textarea>
+							</div>
+						</div>
+					<br>
+					</div>
+                    	 
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal" (click)="GuardarCambiosActualizacion()">Guardar</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>

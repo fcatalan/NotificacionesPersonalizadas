@@ -1,0 +1,30 @@
+<div id="content" class="content-site  container clearfix">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h3>{{titulo}}</h3>
+            <p>Seleccione funcionalidad de Notificación</p>
+            <hr>
+            <div class="row">
+
+                
+                <div class="col-md-4 " align="center" id="divEnvioNotificaciones" *ngIf="tienePermisoEnviarNotificacion">
+                    <a routerLink="/seleccionarsistema"><img src="assets/img/crear_notificacion.png">
+                        <br>
+                        <p>Crear Notificacion</p>
+                    </a>
+                </div>
+                 <div class="col-md-4" align="center" id="divEnvioCorreos" *ngIf="tienePermisoEnviarCorreo">
+                    <a routerLink="/envionotificaciones" ><img src="assets/img/buscar.png">
+                        <p>Buscar Notificaciones</p>
+                    </a>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

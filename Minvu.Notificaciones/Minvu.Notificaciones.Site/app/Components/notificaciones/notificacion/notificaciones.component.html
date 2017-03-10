@@ -1,0 +1,205 @@
+﻿<div id="content" class="content-site  container clearfix">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>{{titulo}}</h1>
+                </div>
+                <div class="col-md-6" align="right">
+                    <a class="btn btn-primary" routerLink="/crear-notificaciones"><span style="color: white" class="glyphicon glyphicon-list-alt"></span> Crear Nueva Notificación</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Nombre:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="para" placeholder=" ">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Fecha Inicio:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="para" placeholder=" ">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Fecha Término:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="para" placeholder=" ">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Usuario:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="opcion1">Opcion 1</option>
+                                <option value="opcion2">Opcion 2</option>
+                                <option value="opcion3">Opcion 3</option>
+                                <option value="opcion4">Opcion 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Estado:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="opcion1">Todo</option>
+                                <option value="opcion2">Activa</option>
+                                <option value="opcion3">Histórico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p> Mostrar:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="opcion1">Opcion 1</option>
+                                <option value="opcion2">Opcion 2</option>
+                                <option value="opcion3">Opcion 3</option>
+                                <option value="opcion4">Opcion 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+                    <a class="btn btn-primary" href=""><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="table-responsive horizontal-scroll">
+                        <table class="table  table-bordered  dataTable no-footers">
+                            <thead>
+                                <tr>
+
+                                    <th>Nombre</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Término</th>
+                                    <th>Usuario</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>Registro Civil - Identificación persona</td>
+                                    <td>01-11-2016 10:00</td>
+                                    <td>01-12-2016 16:00</td>
+                                    <td>fcatalan</td>
+                                    <td>Activa</td>
+
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Ver" href="#previsualizar"> <i class="glyphicon glyphicon-eye-open"></i> </a>
+                                        <!--Editar-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--Crear-->
+                                        <a href="crearnotificaciones.html"><i class="glyphicon glyphicon-list-alt"></i> </a>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Servicio Impuestos Internos - UF</td>
+                                    <td>01-11-2016 10:00</td>
+                                    <td>01-12-2016 16:00</td>
+                                    <td>fcatalan</td>
+                                    <td>Activa</td>
+
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Ver" href="#previsualizar"> <i class="glyphicon glyphicon-eye-open"></i> </a>
+                                        <!--Editar-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--Crear-->
+                                        <a data-toggle="modal" title="Crear" href="#crear"> <i class="glyphicon glyphicon-list-alt"></i> </a>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Banco Central - Dólar observado</td>
+                                    <td>01-11-2016 10:00</td>
+                                    <td>01-12-2016 16:00</td>
+                                    <td>fcatalan</td>
+                                    <td>Activa</td>
+
+                                    <td>
+                                        <!--ver-->
+                                        <a data-toggle="modal" title="Ver" href="#previsualizar"> <i class="glyphicon glyphicon-eye-open"></i> </a>
+                                        <!--Editar-->
+                                        <a data-toggle="modal" title="Editar" href="#editar"> <i class="glyphicon glyphicon-edit"></i> </a>
+                                        <!--Crear-->
+                                        <a data-toggle="modal" title="Crear" href="#crear"> <i class="glyphicon glyphicon-list-alt"></i> </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <ul class="pagination">
+                            <li><a href="#">«</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-5">
+                        <a class="btn btn-primary" data-toggle="modal" href="#confirmar"><span class="glyphicon glyphicon-check"></span> Utilizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <!-- fin de .main -->
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,84 @@
+<div id="content" class="content-site  container clearfix">
+		<div class="row">
+			<div id="main" class="col-md-12 clearfix" role="main">
+				<div class="row">
+				  <div class="col-md-6">
+				    <h3>Crear Notificaciones</h3>
+				  </div> 
+				</div>
+				<!--<div class="row">
+					<div class="col-md-4">
+						<div class="row">
+							<div class="col-md-4">
+								<p> Sistema:</p>
+							</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="para" placeholder=" ">
+							</div>
+						</div>
+					</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+									<p> Mostrar:</p>
+								</div>
+								<div class="col-md-8">
+									<select class="form-control">
+									  <option value="opcion1">Opcion 1</option>
+									  <option value="opcion2">Opcion 2</option>
+									  <option value="opcion3">Opcion 3</option>
+									  <option value="opcion4">Opcion 4</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<a class="btn btn-primary" href=""><span style="color: white" class="glyphicon glyphicon-search"></span> Buscar</a>
+						</div>
+				
+				</div>
+				-->
+				<br>
+				<br>
+				<div class="row">
+					<p>Sistemas asociados</p>
+						<div class="col-md-12">
+							<div class="table-responsive horizontal-scroll">
+								<table class="table  table-bordered  dataTable no-footers">
+									<thead>
+										<tr>
+											<th>Selección</th>
+											<th>Sistema</th>
+										</tr>
+									</thead>
+									<tbody>
+                                     <tr *ngFor="let item of sistemasEmisoresLst" >
+											<td><input id="{{item.IdEmisor}}" type="checkbox" (change)="check_uncheck($event)"  [checked]="item.Vigente" ></td>
+											<td>{{item.NombreSistema}}</td>
+									 </tr>
+									</tbody>
+								</table>
+							</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="col-sm-1">
+							<a class="btn btn-default" routerLink="/envionotificaciones"><span class="glyphicon glyphicon-chevron-left"></span> Volver</a>
+						</div>
+						<div class="col-sm-1">
+							<a class="btn btn-primary" (click)="activarCrearNotificacion()" ><span class="glyphicon glyphicon-check" ></span> Crear</a>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<a class="btn btn-default" href="#top"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+				<br/>
+			</div>
+			 <br> <br>
+
+		</div>
+		<!-- fin de .main -->
+	</div>
+	<!-- fin de .row -->

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2773b08e18744f22b5ee90c10af6fa04" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.ADJUNTO" Width="1.5" PointX="4.75" PointY="10.625" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.DESTINATARIO" Width="1.5" PointX="5.75" PointY="4.25" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.ENVIO" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_CORREO" Width="1.5" PointX="6.75" PointY="10.5" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_ENVIO" Width="1.5" PointX="3.625" PointY="4.25" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_PLANTILLA_CORREO" Width="1.5" PointX="0.5" PointY="6.125" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.EVENTO" Width="1.5" PointX="2.75" PointY="10.25" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.NOTIFICACION" Width="1.5" PointX="8" PointY="13" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.PALABRAS_PROHIBIDAS" Width="1.5" PointX="2.25" PointY="12.5" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO" Width="1.75" PointX="2.5" PointY="6.375" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.SISTEMA_EMISOR" Width="1.5" PointX="1.625" PointY="3.25" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.USUARIO" Width="1.5" PointX="0.5" PointY="8.75" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_ADJUNTO_REFERENCE_ENVIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_ESTADOENVIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_PLANTILLACORREO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_USUARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_EVENTO_USUARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_NOTIFICACION_REFERENCE_USUARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_USUARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.NOTIFICACION_SISTEMA_EMISOR" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.MENSAJE" Width="1.5" PointX="9.25" PointY="7.125" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK__PLANTILLA__IDSIS__403A8C7D" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.sysdiagrams" Width="1.5" PointX="4.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_Notificaciones_PersonalizadasModel.CORREO" Width="1.5" PointX="6.75" PointY="6.25" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK__CORREO__IDSISTEM__4AB81AF0" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_DESTINATARIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ENVIO" />
+        <AssociationConnector Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ESTADOCORREO" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

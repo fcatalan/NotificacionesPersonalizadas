@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_Notificaciones_PersonalizadasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NotificacionesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADJUNTO" EntityType="DB_Notificaciones_PersonalizadasModel.ADJUNTO" />
+    <EntitySet Name="CORREO" EntityType="DB_Notificaciones_PersonalizadasModel.CORREO" />
+    <EntitySet Name="DESTINATARIO" EntityType="DB_Notificaciones_PersonalizadasModel.DESTINATARIO" />
+    <EntitySet Name="ENVIO" EntityType="DB_Notificaciones_PersonalizadasModel.ENVIO" />
+    <EntitySet Name="ESTADO_CORREO" EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_CORREO" />
+    <EntitySet Name="ESTADO_ENVIO" EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_ENVIO" />
+    <EntitySet Name="ESTADO_NOTIFICACION" EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_NOTIFICACION" />
+    <EntitySet Name="ESTADO_PLANTILLA_CORREO" EntityType="DB_Notificaciones_PersonalizadasModel.ESTADO_PLANTILLA_CORREO" />
+    <EntitySet Name="EVENTO" EntityType="DB_Notificaciones_PersonalizadasModel.EVENTO" />
+    <EntitySet Name="NOTIFICACION" EntityType="DB_Notificaciones_PersonalizadasModel.NOTIFICACION" />
+    <EntitySet Name="PALABRAS_PROHIBIDAS" EntityType="DB_Notificaciones_PersonalizadasModel.PALABRAS_PROHIBIDAS" />
+    <EntitySet Name="PLANTILLA_CORREO" EntityType="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO" />
+    <EntitySet Name="SISTEMA_EMISOR" EntityType="DB_Notificaciones_PersonalizadasModel.SISTEMA_EMISOR" />
+    <EntitySet Name="USUARIO" EntityType="DB_Notificaciones_PersonalizadasModel.USUARIO" />
+    <AssociationSet Name="FK_ADJUNTO_REFERENCE_ENVIO" Association="DB_Notificaciones_PersonalizadasModel.FK_ADJUNTO_REFERENCE_ENVIO">
+      <End Role="ENVIO" EntitySet="ENVIO" />
+      <End Role="ADJUNTO" EntitySet="ADJUNTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_DESTINATARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_DESTINATARIO">
+      <End Role="DESTINATARIO" EntitySet="DESTINATARIO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_ENVIO" Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ENVIO">
+      <End Role="ENVIO" EntitySet="ENVIO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORREO_REFERENCE_ESTADOCORREO" Association="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ESTADOCORREO">
+      <End Role="ESTADO_CORREO" EntitySet="ESTADO_CORREO" />
+      <End Role="CORREO" EntitySet="CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ENVIO__IDSISTEMA__0169315C" Association="DB_Notificaciones_PersonalizadasModel.FK__ENVIO__IDSISTEMA__0169315C">
+      <End Role="SISTEMA_EMISOR" EntitySet="SISTEMA_EMISOR" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_ESTADOENVIO" Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_ESTADOENVIO">
+      <End Role="ESTADO_ENVIO" EntitySet="ESTADO_ENVIO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_PLANTILLACORREO" Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_PLANTILLACORREO">
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENVIO_REFERENCE_USUARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ENVIO" EntitySet="ENVIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NOTIFICAC__IDEST__00750D23" Association="DB_Notificaciones_PersonalizadasModel.FK__NOTIFICAC__IDEST__00750D23">
+      <End Role="ESTADO_NOTIFICACION" EntitySet="ESTADO_NOTIFICACION" />
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO" Association="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO">
+      <End Role="ESTADO_PLANTILLA_CORREO" EntitySet="ESTADO_PLANTILLA_CORREO" />
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVENTO_USUARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_EVENTO_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTIFICACION_REFERENCE_USUARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_NOTIFICACION_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PALABRAS_PROHIBIDAS" EntitySet="PALABRAS_PROHIBIDAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANTILLACORREO_REFERENCE_USUARIO" Association="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PLANTILLA_CORREO" EntitySet="PLANTILLA_CORREO" />
+    </AssociationSet>
+    <AssociationSet Name="NOTIFICACION_SISTEMA_EMISOR" Association="DB_Notificaciones_PersonalizadasModel.NOTIFICACION_SISTEMA_EMISOR">
+      <End Role="NOTIFICACION" EntitySet="NOTIFICACION" />
+      <End Role="SISTEMA_EMISOR" EntitySet="SISTEMA_EMISOR" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ADJUNTO">
+    <Key>
+      <PropertyRef Name="IDADJUNTO" />
+    </Key>
+    <Property Name="IDADJUNTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDENVIO" Type="Int32" />
+    <Property Name="RUTA" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="TAMANIO" Type="Int32" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ADJUNTO_REFERENCE_ENVIO" FromRole="ADJUNTO" ToRole="ENVIO" />
+  </EntityType>
+  <EntityType Name="CORREO">
+    <Key>
+      <PropertyRef Name="IDCORREO" />
+    </Key>
+    <Property Name="IDCORREO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDESTADOCORREO" Type="Int32" />
+    <Property Name="IDDESTINATARIO" Type="Int32" />
+    <Property Name="IDENVIO" Type="Int32" />
+    <Property Name="ASUNTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CUERPO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAHORA" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DESTINATARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_DESTINATARIO" FromRole="CORREO" ToRole="DESTINATARIO" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ENVIO" FromRole="CORREO" ToRole="ENVIO" />
+    <NavigationProperty Name="ESTADO_CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ESTADOCORREO" FromRole="CORREO" ToRole="ESTADO_CORREO" />
+  </EntityType>
+  <EntityType Name="DESTINATARIO">
+    <Key>
+      <PropertyRef Name="IDDESTINATARIO" />
+    </Key>
+    <Property Name="IDDESTINATARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CASILLACORREO" Type="String" Nullable="false" MaxLength="320" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_DESTINATARIO" FromRole="DESTINATARIO" ToRole="CORREO" />
+  </EntityType>
+  <EntityType Name="ENVIO">
+    <Key>
+      <PropertyRef Name="IDENVIO" />
+    </Key>
+    <Property Name="IDENVIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUSUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IDPLANTILLACORREO" Type="Int32" />
+    <Property Name="IDSISTEMAEMISOR" Type="Int32" />
+    <Property Name="IDESTADOENVIO" Type="Int32" />
+    <Property Name="FECHAHORA" Type="DateTime" Precision="3" />
+    <Property Name="CONCOPIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CONCOPIAOCULTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ADJUNTO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ADJUNTO_REFERENCE_ENVIO" FromRole="ENVIO" ToRole="ADJUNTO" />
+    <NavigationProperty Name="CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ENVIO" FromRole="ENVIO" ToRole="CORREO" />
+    <NavigationProperty Name="SISTEMA_EMISOR" Relationship="DB_Notificaciones_PersonalizadasModel.FK__ENVIO__IDSISTEMA__0169315C" FromRole="ENVIO" ToRole="SISTEMA_EMISOR" />
+    <NavigationProperty Name="ESTADO_ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_ESTADOENVIO" FromRole="ENVIO" ToRole="ESTADO_ENVIO" />
+    <NavigationProperty Name="PLANTILLA_CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_PLANTILLACORREO" FromRole="ENVIO" ToRole="PLANTILLA_CORREO" />
+    <NavigationProperty Name="USUARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_USUARIO" FromRole="ENVIO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="ESTADO_CORREO">
+    <Key>
+      <PropertyRef Name="IDESTADOCORREO" />
+    </Key>
+    <Property Name="IDESTADOCORREO" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_CORREO_REFERENCE_ESTADOCORREO" FromRole="ESTADO_CORREO" ToRole="CORREO" />
+  </EntityType>
+  <EntityType Name="ESTADO_ENVIO">
+    <Key>
+      <PropertyRef Name="IDESTADOENVIO" />
+    </Key>
+    <Property Name="IDESTADOENVIO" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_ESTADOENVIO" FromRole="ESTADO_ENVIO" ToRole="ENVIO" />
+  </EntityType>
+  <EntityType Name="ESTADO_NOTIFICACION">
+    <Key>
+      <PropertyRef Name="IDESTADONOTIFICACION" />
+    </Key>
+    <Property Name="IDESTADONOTIFICACION" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NOTIFICACION" Relationship="DB_Notificaciones_PersonalizadasModel.FK__NOTIFICAC__IDEST__00750D23" FromRole="ESTADO_NOTIFICACION" ToRole="NOTIFICACION" />
+  </EntityType>
+  <EntityType Name="ESTADO_PLANTILLA_CORREO">
+    <Key>
+      <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+    </Key>
+    <Property Name="IDESTADOPLANTILLACORREO" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PLANTILLA_CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO" FromRole="ESTADO_PLANTILLA_CORREO" ToRole="PLANTILLA_CORREO" />
+  </EntityType>
+  <EntityType Name="EVENTO">
+    <Key>
+      <PropertyRef Name="IDEVENTO" />
+    </Key>
+    <Property Name="IDEVENTO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUSUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="USUARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_EVENTO_USUARIO" FromRole="EVENTO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="NOTIFICACION">
+    <Key>
+      <PropertyRef Name="IDNOTIFICACION" />
+    </Key>
+    <Property Name="IDNOTIFICACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUSUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IDESTADONOTIFICACION" Type="Int32" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ASUNTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="MENSAJE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAHORAINICIO" Type="DateTime" Precision="3" />
+    <Property Name="FECHAHORAFIN" Type="DateTime" Precision="3" />
+    <Property Name="ESTADOVIGENCIA" Type="Boolean" />
+    <Property Name="FECHACREACION" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ESTADO_NOTIFICACION" Relationship="DB_Notificaciones_PersonalizadasModel.FK__NOTIFICAC__IDEST__00750D23" FromRole="NOTIFICACION" ToRole="ESTADO_NOTIFICACION" />
+    <NavigationProperty Name="USUARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_NOTIFICACION_REFERENCE_USUARIO" FromRole="NOTIFICACION" ToRole="USUARIO" />
+    <NavigationProperty Name="SISTEMA_EMISOR" Relationship="DB_Notificaciones_PersonalizadasModel.NOTIFICACION_SISTEMA_EMISOR" FromRole="NOTIFICACION" ToRole="SISTEMA_EMISOR" />
+  </EntityType>
+  <EntityType Name="PALABRAS_PROHIBIDAS">
+    <Key>
+      <PropertyRef Name="IDPALABRAPROHIBIDA" />
+    </Key>
+    <Property Name="IDPALABRAPROHIBIDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUSUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PALABRA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAINGRESO" Type="DateTime" Precision="3" />
+    <Property Name="IDUSUARIOMODIFICACION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAMODIFICACION" Type="DateTime" Precision="3" />
+    <Property Name="ESTADOVIGENCIA" Type="Boolean" />
+    <NavigationProperty Name="USUARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO" FromRole="PALABRAS_PROHIBIDAS" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="PLANTILLA_CORREO">
+    <Key>
+      <PropertyRef Name="IDPLANTILLACORREO" />
+    </Key>
+    <Property Name="IDPLANTILLACORREO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDESTADOPLANTILLACORREO" Type="Int32" />
+    <Property Name="IDUSUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ASUNTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CUERPO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FECHACREACION" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_PLANTILLACORREO" FromRole="PLANTILLA_CORREO" ToRole="ENVIO" />
+    <NavigationProperty Name="ESTADO_PLANTILLA_CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO" FromRole="PLANTILLA_CORREO" ToRole="ESTADO_PLANTILLA_CORREO" />
+    <NavigationProperty Name="USUARIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_USUARIO" FromRole="PLANTILLA_CORREO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="SISTEMA_EMISOR">
+    <Key>
+      <PropertyRef Name="IDSISTEMAEMISOR" />
+    </Key>
+    <Property Name="IDSISTEMAEMISOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CASILLACORREO" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRESISTEMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VIGENTE" Type="Boolean" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK__ENVIO__IDSISTEMA__0169315C" FromRole="SISTEMA_EMISOR" ToRole="ENVIO" />
+    <NavigationProperty Name="NOTIFICACION" Relationship="DB_Notificaciones_PersonalizadasModel.NOTIFICACION_SISTEMA_EMISOR" FromRole="SISTEMA_EMISOR" ToRole="NOTIFICACION" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAULTIMOINGRESO" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ENVIO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_ENVIO_REFERENCE_USUARIO" FromRole="USUARIO" ToRole="ENVIO" />
+    <NavigationProperty Name="EVENTO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_EVENTO_USUARIO" FromRole="USUARIO" ToRole="EVENTO" />
+    <NavigationProperty Name="NOTIFICACION" Relationship="DB_Notificaciones_PersonalizadasModel.FK_NOTIFICACION_REFERENCE_USUARIO" FromRole="USUARIO" ToRole="NOTIFICACION" />
+    <NavigationProperty Name="PALABRAS_PROHIBIDAS" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO" FromRole="USUARIO" ToRole="PALABRAS_PROHIBIDAS" />
+    <NavigationProperty Name="PLANTILLA_CORREO" Relationship="DB_Notificaciones_PersonalizadasModel.FK_PLANTILLACORREO_REFERENCE_USUARIO" FromRole="USUARIO" ToRole="PLANTILLA_CORREO" />
+  </EntityType>
+  <Association Name="FK_ADJUNTO_REFERENCE_ENVIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.ADJUNTO" Role="ADJUNTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENVIO">
+        <PropertyRef Name="IDENVIO" />
+      </Principal>
+      <Dependent Role="ADJUNTO">
+        <PropertyRef Name="IDENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_DESTINATARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.DESTINATARIO" Role="DESTINATARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.CORREO" Role="CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATARIO">
+        <PropertyRef Name="IDDESTINATARIO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDDESTINATARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_ENVIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.CORREO" Role="CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENVIO">
+        <PropertyRef Name="IDENVIO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORREO_REFERENCE_ESTADOCORREO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ESTADO_CORREO" Role="ESTADO_CORREO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.CORREO" Role="CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_CORREO">
+        <PropertyRef Name="IDESTADOCORREO" />
+      </Principal>
+      <Dependent Role="CORREO">
+        <PropertyRef Name="IDESTADOCORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ENVIO__IDSISTEMA__0169315C">
+    <End Type="DB_Notificaciones_PersonalizadasModel.SISTEMA_EMISOR" Role="SISTEMA_EMISOR" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SISTEMA_EMISOR">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDSISTEMAEMISOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_ESTADOENVIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ESTADO_ENVIO" Role="ESTADO_ENVIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_ENVIO">
+        <PropertyRef Name="IDESTADOENVIO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDESTADOENVIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_PLANTILLACORREO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO" Role="PLANTILLA_CORREO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDPLANTILLACORREO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDPLANTILLACORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENVIO_REFERENCE_USUARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.ENVIO" Role="ENVIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="ENVIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NOTIFICAC__IDEST__00750D23">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ESTADO_NOTIFICACION" Role="ESTADO_NOTIFICACION" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.NOTIFICACION" Role="NOTIFICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_NOTIFICACION">
+        <PropertyRef Name="IDESTADONOTIFICACION" />
+      </Principal>
+      <Dependent Role="NOTIFICACION">
+        <PropertyRef Name="IDESTADONOTIFICACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANTILLACORREO_REFERENCE_ESTADOPLANTILLACORREO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.ESTADO_PLANTILLA_CORREO" Role="ESTADO_PLANTILLA_CORREO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO" Role="PLANTILLA_CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_PLANTILLA_CORREO">
+        <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+      </Principal>
+      <Dependent Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDESTADOPLANTILLACORREO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVENTO_USUARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.EVENTO" Role="EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTIFICACION_REFERENCE_USUARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.NOTIFICACION" Role="NOTIFICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="NOTIFICACION">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PALABRASPROHIBIDAS_REFERENCE_USUARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.PALABRAS_PROHIBIDAS" Role="PALABRAS_PROHIBIDAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PALABRAS_PROHIBIDAS">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANTILLACORREO_REFERENCE_USUARIO">
+    <End Type="DB_Notificaciones_PersonalizadasModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.PLANTILLA_CORREO" Role="PLANTILLA_CORREO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="PLANTILLA_CORREO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NOTIFICACION_SISTEMA_EMISOR">
+    <End Type="DB_Notificaciones_PersonalizadasModel.NOTIFICACION" Role="NOTIFICACION" Multiplicity="*" />
+    <End Type="DB_Notificaciones_PersonalizadasModel.SISTEMA_EMISOR" Role="SISTEMA_EMISOR" Multiplicity="*" />
+  </Association>
+</Schema>

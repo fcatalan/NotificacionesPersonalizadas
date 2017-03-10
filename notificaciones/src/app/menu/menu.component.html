@@ -1,0 +1,41 @@
+<div id="content" class="content-site  container clearfix">
+    <div class="row">
+        <div id="main" class="col-md-12 clearfix" role="main">
+            <h1>{{titulo}}</h1>
+            <p>Selecciona el módulo que deseas utilizar&nbsp;<img src="assets/img/loading.gif" class="imgCargandoMenus" style="display:none"/></p>
+            <hr>
+            <div class="row">
+                <!--
+                <div class="col-md-4" align="center">
+                    <a routerLink="/correonuevo2" ><img src="assets/img/email.png">
+                        <p>Envío de correos</p>
+                    </a>
+
+                </div>
+                -->
+                 <div class="col-md-4" align="center" id="divEnvioCorreos" *ngIf="tienePermisoEnviarCorreo">
+                    <a routerLink="/seleccionsistemaemisor" ><img src="assets/img/email.png">
+                        <p>Envío de correos</p>
+                    </a>
+
+                </div>
+                <div class="col-md-4 " align="center" id="divEnvioNotificaciones" *ngIf="tienePermisoEnviarNotificacion">
+                    <a routerLink="/menuNotificacion"><img src="assets/img/notificacion.png">
+                        <br>
+                        <p>Envío de Notificaciones</p>
+                    </a>
+                </div>
+
+                <div class="col-md-4 " align="center" id="divMantenedorPalabrasProhibidas" *ngIf="tienePermisoAdministrarPalabrasProhibidas">
+                    <a routerLink="/mantenedor"><img src="assets/img/mantenedor.png">
+                        <br>
+                        <p>Mantenedor</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

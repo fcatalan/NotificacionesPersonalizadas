@@ -1,0 +1,144 @@
+<div id="content" class="content-site  container clearfix">
+		<div class="row">
+			<div id="main" class="col-md-12 clearfix" role="main">
+				<h3>Crear Nueva Notificación</h3>
+				  <br/>
+					<div class="col-md-12">
+					<!-- Form test -->
+					<!-- <form class="form-horizontal" role="form">-->
+					<div class="form-horizontal">
+						<!--<p>Notificación - Servicios Internos - UF</p>-->
+						<div class="form-group">
+							<div class="col-sm-2">
+							<label>Nombre: </label>
+								</div>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="nombre" [(ngModel)]="notificacion.Nombre"   placeholder=" ">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">	
+									<div class="col-md-6">	
+								<div class="col-md-4">
+							<strong>Fecha Inicio-Hora activación: </strong>
+								</div>
+								<div class="col-md-4">	
+                                   <my-date-picker [options]="myDatePickerOptions" [selDate]="selectedDateInicio"
+                                        (dateChanged)="onDateChangedFechaInicio($event)" >
+                                    </my-date-picker>
+									<span ng-bind="mydatepicker_fechainicio" style="display: block; margin-top: 5px;"></span>
+
+									<!--<input type="text" class="form-control" id="fechaHorainicio" [(ngModel)]="notificacion.fechaHorainicio"  placeholder="10/01/2017" >-->
+								</div>
+								<div class="col-md-4">	
+									<input type="text" class="form-control" id="horaInicio" [(ngModel)]="notificacion.HoraInicio" (blur)="validarHora(notificacion.HoraInicio)" placeholder="00:00"> 
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="col-md-4">
+							<strong>Fecha Término-Hora activación: </strong>
+								</div>
+								<div class="col-md-4">	
+									<my-date-picker [options]="myDatePickerOptions" [selDate]="selectedDateFin"
+                                        (dateChanged)="onDateChangedFechaFin($event)" >
+                                    </my-date-picker>
+									<span ng-bind="mydatepicker_fechafin" style="display: block; margin-top: 5px;"></span>
+
+									<!--<input type="text" class="form-control" id="fechaHorafin" [(ngModel)]="notificacion.fechaHorafin" placeholder="10/01/2017" >-->
+								</div>
+								<div class="col-md-4">	
+									<input type="text" class="form-control" id="horaFin" [(ngModel)]="notificacion.HoraFin" (blur)="validarHora(notificacion.HoraFin)" placeholder="20:00">
+								</div>
+							</div>				
+						</div>
+						</div>
+						
+						<div class="form-group">
+							
+							<div class="row">
+								<div class="col-md-12">	
+								<textarea rows="4" class="form-control"  id="mensaje" [(ngModel)]="notificacion.Mensaje" cols="50"></textarea>
+							</div>
+								</div>
+						</div>
+
+						
+						<div class="form-group">
+							<div class="col-sm-6"> </div>
+							<div class="col-sm-6" align="right">
+								<div class="col-sm-5">
+									<a class="btn btn-default" data-toggle="modal" href="#previsualizar"  (click)="previsualizar()"><span class="glyphicon glyphicon-eye-open" ></span> Previsualizar</a>
+								</div>
+								<div class="col-sm-3">
+									<a class="btn btn-default" (click)="guardarNuevaNotificacion($event)"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="btn btn-default" href="#top"><span class="glyphicon glyphicon-circle-arrow-up"></span> Top</a>
+
+				<br/>
+         </div>
+
+		</div>
+		<!-- fin de .main -->
+	</div>
+<!-- Previsualizar-->
+
+<div id="previsualizar" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Notificación</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						
+							<div class="col-md-12">
+									<p>{{notificacionPrev.Nombre}}</p>
+								<div class="col-md-6">
+							<strong>Fecha Inicio-Hora activación: </strong>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" value="{{strFechaIni}}"   disabled >
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control"  value="{{notificacionPrev.HoraInicio}}" disabled>
+								</div>
+							</div>
+						</div>
+					<br>
+				<div class="row">
+						<div class="col-md-12">
+								<div class="col-md-6">
+							<strong>Fecha Término-Hora activación: </strong>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control" value="{{strFechaFin}}"  disabled>
+								</div>
+								<div class="col-md-3">	
+									<input type="text" class="form-control"  value={{notificacionPrev.HoraFin}} placeholder="" disabled>
+								</div>
+							</div>						
+						</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+					<textarea  disabled rows="4" class="form-control" cols="50"> {{strMensajePrev}} 
+</textarea>
+							</div>
+						</div>
+					<br>
+					</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Modal content-->
